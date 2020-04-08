@@ -19,7 +19,6 @@ Poséidon,Iphimédie,[Otos Éphialtès]
 #Livre I, 7, 5-10
 Aethlios,Calycé,[Endymion]
 Endymion,Naïade,[Étolos]
-Phoronée,?,[Atis]
 Apollon,Phthia,[Doros2 Laodocos Polypoétès]
 Étolos,Pronoé,[Pleuron Calydon]
 Phorbas,?,[Pronoé]
@@ -47,7 +46,6 @@ Arès,?,[Dryas]
 Zeus,Léda,[Castor Pollux]
 Égée,?,[Thésée]
 Lycurgue1,?,[Ancée Céphée]
-Amphitryon,?,[Iphiclès]
 Ixion,?,[Pirithoos]
 Éaque,?,[Pélée Télamon]
 Actor,?,[Eurytion]
@@ -73,11 +71,10 @@ Athamas,Thémisto,[Leucon Érythrios Schoné Ptoos]
 Hypsée,?,[Hypsée]
 Sisyphe,Méropé,[Glaucos]
 Asopos,?,[Égine]
-Glaucos,Eurymède,[Bellérophon]
+Glaucos,Eurymède,[Bellérophon Déliades]
 Déioné,Diomédé,[Astérodia Aénétos Actor1 Phylacos Céphale]
 Céphale,Procris,[none]
 Périérès,Gorgophoné,[Apharée Leucippos Tyndare Icarios]
-Persée,?,[Gorgophoné]
 Magnès,Nymphe(?),[Polydectès Dictys]
 
 # Livre I, 9, 7-9
@@ -126,3 +123,100 @@ Talos,?,[none]
 Créon,?,[Glaucé]
 Jason,Médée,[Merméros Phérétès]
 Égée,Médée,[Médos]
+
+#Livre II, 1, 1-3
+Océan,Théthys,[Inachos Mélia]
+Inachos,Mélia,[Égialé1 Phoronée]
+Phoronée,Télédicé,[Apis Niobé]
+Zeus,Niobé,[Argos1 Acousilaos Pélasgos]
+Argos1,Évadné,[Ecbasos Pyras Épidauros Criasos]
+Strymon,Néère,[Évadné]
+Ecbasos,?,[Agénor1]
+Agénor1,?,[Argos2]
+Argos2,Ismène,[Iasos]
+Asopos,?,[Ismène]
+Iasos,?,[Io]
+Arestor,?,[Argos3]
+Zeus,Io,[Épaphos]
+Télégonos,Io,[none]
+Épaphos,Memphis,[Libye Lysianassa]
+Nil,?,[Memphis Anchinoé]
+
+#Livre II, 1, 1-4
+Poséidon,Libye,[Agénor2 Bélos]
+Bélos,Anchinoé,[Égyptos Danaos]
+Égyptos,?,[Lyncée 50fils]
+Danaos,?,[Hypermnestre1 Danaïdes]
+
+#Livre II, 1, 5
+#Liste des DanaÎdes et des fils d'Égyptos
+50fils,Danaïdes,[none]
+Lyncée,Hypermnestre1,[Abas]
+
+#Livre II, 2, 1-2
+Abas,Aglaé,[Acrisios Proétos Idoménée]
+Mantinée,?,[Aglaé]
+Iobatès,?,[Sthénébée]
+Proétos,Sthénébée,[Lysippé Iphinoé Iphianassa Mégapenthès]
+Lacédémon,?,[Eurydice2]
+Acrisios,Eurydice2,[Danaé]
+
+#Livre II, 3, 1-2
+Bellérophon,Philonoé,[none]
+
+#Livre II, 4, 1-2
+Zeus,Danaé,[Persée]
+Poséidon,Méduse,[Pégase Chrysaor]
+Chrysaor,Callirhoé,[Géryon]
+Céphée1,Cassiopée,[Andromède]
+?,?,[Céphée1 Phinée]
+Persée,Andromède,[Persès Alcéos Sthénélos Héléos Mestor Électryon Gorgophoné]
+Pélops,?,[Alcathoos1 Astydamie Lysidicé Nicippé Atrée Thyeste]
+Alcéos,Astydamie,[Amphitryon Anaxo]
+Mestor,Lysidicé,[Hippothoé]
+Poséidon,Hippothoé,[Taphios]
+Taphios,?,[Ptérélas]
+Ptérélas,?,[Chromios Tyrannos Antiochos Chersidamas Mestor Évérès Comaitho]
+Électryon,Anaxao,[Alcmène Stratobatès Gorgophonos Phylonomos Célénos Amphimachos Lysinomos Chirimachos Anactor Archélaos]
+Électryon,Midée,[Licymnios]
+Sthénélos,Nicippé,[Alcyoné1 Médusa Eurysthée]
+
+#Livre II, 4, 6
+Polyxénos,?,[none]
+#Thèbes!
+?,?,[Créon1 Périmède1]
+Créon1,?,[Mégare]
+
+#Livre II, 4, 7 peut-être 2 3 trucs à ajouter
+Zeus,Alcmène,[Héraclès]
+Amphitryon,Alcmène,[Iphiclès]
+
+#Livre II, 4, 9-10
+#maitres d'Héraclès éventuellement
+Thespios,Mégamède,[50filles]
+
+#Livre II, 4, 11-12
+Clyménos,?,[Erginos]
+Héraclès,Créon1,[Thérimachos Créontiadès Déichoon]
+Iphiclès,Automéduse,[Iolaos]
+Alcathoos1,?,[Automéduse]
+Zeus,?,[Rhadamante]
+Alcmène,Rhadamante,[none]
+
+#Livre II, 5, 1-12
+Poséidon,?,[Augias]
+Augias,?,[Philée]
+Dexaménos,?,[Mnésimaché]
+Arès,Cyrène,[Diomède1]
+Eurysthée,?,[Admète1]
+Minos,?,[Eurymédon Chrysès Néphalion Philolaos Androgée]
+Androgée,?,[Alcéos1 Sthénélos1]
+Dascylos,?,[Lycos]
+Mygdon,?,[none]
+Laomédon,?,[Hésioné]
+Poséidon,?,[Poltys Sarpédon]
+Poseidon,?,[Protée]
+Protée,?,[Polygonos Télégonos1]
+Océan,?,[Callirhoé]
+Poseidon,?,[Éryx]
+Poséidon,Lysianassa,[Busiris]

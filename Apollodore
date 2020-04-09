@@ -38,7 +38,7 @@ Achéloos,Stéropé1,[Sirènes]
 
 # Livre I, 8, 1-3
 Oenée,Althée,[Toxéos Tyréos Clyménos Gorgé Déjanire Méléagre]
-Andræmon,Gorgé,[none]
+Andræmon,Gorgé,[Thoas2]
 Héraclès,Déjanire,[none]
 #Chasse du sanglier de Calydon
 Arès,?,[Dryas]
@@ -167,7 +167,7 @@ Chrysaor,Callirhoé,[Géryon]
 Céphée1,Cassiopée,[Andromède]
 ?,?,[Céphée1 Phinée]
 Persée,Andromède,[Persès Pitthée Alcéos Sthénélos Héléos Mestor Électryon Gorgophoné]
-Pélops,?,[Alcathoos1 Chrysippe Astydamie Lysidicé Nicippé Atrée Thyeste]
+Pélops,Hippodamie1,[Sciron Alcathoos1 Chrysippe Astydamie Lysidicé Nicippé Atrée Thyeste]
 Alcéos,Astydamie,[Amphitryon Anaxo]
 Mestor,Lysidicé,[Hippothoé]
 Poséidon,Hippothoé,[Taphios]
@@ -260,10 +260,10 @@ Zeus,Cassiopée,[Atymnios]
 Minos,Crétée,[Catrée Deucalion1 Glaucos1 Androgée Acallé Xénodicé Ariane Phèdre]
 Minos,Dexithéa,[Euxanthios]
 taureau,Pasiphaé,[Minotaure]
-Dédale,?,[Icare]
+Dédale,Naucraté,[Icare]
 
 #Livre III 2, 1
-Catrée,?,[Aréopé Clyméné Apémosyné Althaéménès]
+Catrée,?,[Aéropé Clyméné Apémosyné Althaéménès]
 
 #Livre III, 2, 2 - Livre II 5,2-3
 #Pléisthénès,Aéropé,[Agamemnon Ménélas] version différente
@@ -291,7 +291,7 @@ Lycos,Dircé,[none]
 
 #Livre III, 5, 6
 Zéthos,Thébè,[none]
-Tantale,?,[Niobé1]
+Tantale,?,[Niobé1 Pélops]
 Amphion1,Niobé1,[Sipyle Eupinytos Isménos Damasichthon Agénor3 Phaédimos Tantale1 Éthodaia Cléodoxa Astyoché Phthia Pélopia2 Astycratia Ogygia]
 Ménoitios,?,[Jocaste]
 
@@ -331,7 +331,7 @@ Alcméon,Callirhoé1,[Amphotéros Acarnan]
 
 #III, 8, 1-2
 Océan,?,[Mélibée]
-Pélasgos,Mélibée,[Lycaon]
+Pélasgos,Mélibée,[Lycaon Hippothoos2]
 Lycaon,?,[50fils1 Nyctimos Callisto]
 #Déluge de Deucalion pendant sont règne
 Zeus,Callisto,[Arcas]
@@ -377,12 +377,12 @@ Oebalos,Gorgophoné,[Hippocoon]
 Hippocoon,?,[Dorycléos Scaios Énarophoros Eutichès Bucolos Lychaethos Tébros Hippothoos Eurytos Hippochorystès Alcinoos Alcon]
 Icarios,Périboéa,[Thoas Damasippos Imeusimos Alétès Périlaos Pénélope]
 Tyndare,Léda,[Timandra Clytemnestre Philonoé]
-Ulysse,Pénélope,[none]
+Ulysse,Pénélope,[Télémaque]
 Échémos,Timandra,[none]
-Agamemnon,Clytemnestre,[none]
+Agamemnon,Clytemnestre,[Oreste Chrysothémis Électre1 Iphigénie]
 
 #III, 10, 8-9
-Laërte,?,[Ulysse]
+Laërte,Anticlée,[Ulysse]
 Ancée1,?,[Agapénor]
 Ctéatos,?,[Amphimaque]
 ?,Philée,[Négès]
@@ -393,12 +393,12 @@ Hippalcimos,?,[Pénélée]
 Oïlée,?,[Ajax]
 Arès,?,[Ascalaphos Ialménos]
 Chalcodon,?,[Élphénor]
-Pirithoos,?,[Polypoétès1]
+Pirithoos,Hippodamie,[Polypoétès1]
 Asclépios,?,[Podalirios Machaon]
 Poeas,?,[Philoctète]
 Évémon,?,[Eurypyle]
 Iphiclos,?,[Protésilas]
-Atrée,?,[Ménélas Agamemnon]
+Atrée,Aéropé,[Ménélas Agamemnon]
 Ménoetios,Sthénélé,[Patrocle]
 
 #III, 11, 1-2
@@ -419,7 +419,7 @@ Capys,Thémisté,[Anchise]
 Anchise,Aphrodite,[Énée Lyros]
 Adraste1,?,[Eurydice3]
 Ilos1,Eurydice3,[Laomédon]
-Laomédon,Strymo,[Tithon Lampos Clytios Hicétaon Podarcès Hésioné Cilla Astyoché2]
+Laomédon,Strymo,[Tithon Lampos Clytios Hicétaon Podarcès Hésioné Cilla Astyoché2 Procléia]
 Laomédon,Calybé,[Bucolion]
 
 #III, 12, 4-6
@@ -428,7 +428,7 @@ Priam,Arisbé,[Ésacos]
 Mérops,?,[Arisbé]
 Ésacos,Aséropé,[none]
 Cébren,?,[Astéropé]
-Hyrtacos,Arisbé,[none]
+Hyrtacos,Arisbé,[Asios]
 Priam,Hécube,[Hector Pâris Créüse1 Laodicé1 Polyxène Cassandre Déiphobe1 Hélénos Pammon Politès Antiphos1 Hipponoos Polydoros1 Troïlos]
 Priam,?,[Mélanippos2 Gorgythion Philémon Hippothoos1 Glaucos2 Agathon Chersidamas1 Évagoras1 Hippodamas1 Mestor2 Atas Doryclos Lycaon1 Dryops Bias1 Chromios1 Astygonos Télestas Évandros Cébrion Mylios Archémachos Laodocos Échéphron1 Idoménée2 Hypérion Ascanios Démocoon Arétos1 Déiopitès Clonios Échémmon Hypérochos Égéon Lysithoos Polymédon Méduse Médésicaste Lysimaché1 Aristodémé]
 Dymas,?,[Hécube]
@@ -516,4 +516,97 @@ Héphaïstos,Anticlée,[Péripétès]
 Polypémon,?,[Sinis]
 Corinthos,?,[Sylée]
 
-#Épitomé, I, 1-24 
+#Épitomé, I, 1-24
+Branchos,Argiopé,[Cercyon]
+Dionysos,Ariane,[Thoas1 Staphylos Onopion Péparéthos]
+Cocalos,?,[none]
+Thésée,Antiope,[Hippolyte]
+Thésée,Phèdre,[Acamas Démophon]
+Poséiodon,Cænéus,[none]
+
+#Épitomé, II, 1-9
+OEnomaos,?,[Hippodamie1]
+Hermès,?,[Myrtilos]
+Thyeste,naïade(?),[Aglaos Calliléon Orchoménos fille]
+Thyeste,fille,[Égisthe]
+Polyphide,?,[none]
+
+#Épitomé, III, 1-9
+Cyniras,?,[none]
+Talthybios,?,[none]
+Mygdalion,?,[none]
+
+#Épitomé, III, 10-14
+Apollon,?,[Anios]
+Anios,?,[Elaïs Spermo Oeno]
+Phyléos,?,[Mégès]
+Charopos,?,[Nirée1]
+Thessalos,?,[Phidippos Antiphos2]
+Ocytos,?,[Gunéos]
+Tenthredon,?,[Prothous]
+
+#Épitomé, III, 15-18
+
+#Épitomé, III, 19-21
+
+#Épitomé, III, 22-27
+Cygnos,Procléia,[Ténès]
+
+#Épitomé, III, 28-35
+Anténor,Théano,[Acamas1]
+Protésilas,Laodamie,[none]
+Eusoros,?,[Acamas2]
+Trézen,?,[Euphémos]
+Bisaltès,?,[Pylamnès]
+Lycaon1,?,[Pandaros]
+Arsinoos,?,[Chromios2 Ennomos]
+Mécisté,?,[Odios Épistrophos1]
+Arétaon,?,[Phorcys Ascanios1]
+Talaemenès,?,[Mesthlès Antiphos3]
+Nomion,?,[Nastès Amphimachos1]
+Hippolochos,?,[Glaucos3]
+
+#Épitomé, IV, 1-8
+Chrysès,?,[Briséis]
+Eumélos,?,[Dolon]
+Rhésos,?,[none]
+Axios,?,[Pélégon]
+Pélégon,?,[Astéropée]
+Épéos,?,[none]
+
+#Épitomé, V, 1-7
+Arès,Otrérès,[Penthésilée]
+
+#Épitomé, V, 8-10
+
+#Épitomé, V, 11-19
+Télèphe,?,[Eurypylos2]
+Laocoon,?,[none]
+Anticlos,?,[none]
+
+#Épitomé, V, 20-25
+Porthéos,?,[Échion]
+
+#Épitomé, VI, 1-4
+Polipoétès,?,[none]
+Podalirios,?,[none]
+Apollon,Mantô,[Mopsos]
+Sthénélos3,?,[Cométès]
+Leucos,?,[none]
+Idoménée1,Méda,[none]
+
+#Épitomé, VI, 12-15c
+Néoptolème,Andromaque,[Molossos]
+Hélénos,Déidamie,[none]
+Gounéos,?,[none]
+Antiphos,?,[none]
+Polyanax,?,[none]
+
+#Épitomé, VI, 23-25
+Strophios,?,[Pylade]
+Pylade,Électre1,[none]
+Oreste,Hermione,[Tisaménos]
+
+#VII, 12-17
+Ulysse,Circé,[Télégonos2]
+Ulysse,Callidicé,[Poliporthès]

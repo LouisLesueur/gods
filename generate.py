@@ -5,10 +5,10 @@ import numpy as np
 class Person:
 	def __init__(self, name):
 		self.name = name
-		
+
 	def __str__(self):
 		return self.name
-		
+
 	def __eq__(self, pers):
 		return self.name == pers.name
 
@@ -19,9 +19,9 @@ class Union:
 		self.mother = Person(mother)
 		self.children = [Person(kid) for kid in children[1:-1].split(" ")]
 		self.id = id
-	
+
 	def gen_tree(self, G):
-		
+
 		G.add_node('u'+str(self.id), shape='point')
 		if self.father.name != '?':
 			G.add_node(self.father.name)
@@ -29,13 +29,13 @@ class Union:
 		if self.mother.name != '?':
 			G.add_node(self.mother.name)
 			G.add_edge(self.mother.name,'u'+str(self.id),arrowhead='none')
-		
+
 		for kid in self.children:
 			if kid.name != 'none':
 				if self.father.name != '?':
 					G.add_edge('u'+str(self.id),kid.name)
 				if self.mother.name != '?':
-					G.add_edge('u'+str(self.id),kid.name)		
+					G.add_edge('u'+str(self.id),kid.name)
 
 
 

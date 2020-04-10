@@ -8,22 +8,19 @@
   <style type="text/css">
     #mynetwork {
       width: 100%;
-      height: 600px;
+      height: 1000px;
       border: 1px solid lightgray;
     }
-    #optionsContainer {
-      height:280px;
-    }
+
   </style>
 
 </head>
 
 <body>
 
-<h2>Arbbre généalogique</h2>
+<h2>Arbre généalogique</h2>
 
 
-<div id="optionsContainer"></div>
 
 <div id="mynetwork"></div>
 
@@ -55,18 +52,7 @@
         hideEdgesOnDrag: true,
         tooltipDelay: 200
       },
-      configure: {
-        filter: function (option, path) {
-          if (option === 'inherit') {return true;}
-          if (option === 'type' && path.indexOf("smooth") !== -1) {return true;}
-          if (option === 'roundness') {return true;}
-          if (option === 'hideEdgesOnDrag') {return true;}
-          if (option === 'hideNodesOnDrag') {return true;}
-          return false;
-        },
-        container: document.getElementById('optionsContainer'),
-        showButton: false
-      },
+
       physics: {
         stabilization: false,
         barnesHut: {

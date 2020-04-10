@@ -66,4 +66,4 @@ def many_unions(G):
 		if len(G.successors(n)) > 1 and n[0] != 'u':
 			print(n)
 
-G.draw('out.svg', 'svg', prog='dot')
+G.draw('img/out.svg', 'svg', prog='dot')

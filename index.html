@@ -3,9 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Mythologie</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <img src="out.svg" />
+    <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
+    <img src="python/img/out.svg" />
 
   </body>
+
+  <script>
+        function goPython(){
+            $.ajax({
+              url: "python/generate.py",
+             context: document.body
+            }).done(function() {
+             alert('Generated !');;
+            });
+        }
+    </script>
 </html>

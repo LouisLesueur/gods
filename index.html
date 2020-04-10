@@ -1,24 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Mythologie</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
-    <img src="out.svg" />
+<!doctype html>
+<html>
+<head>
+  <title>Mythologie</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script src="python/script.js"></script>
 
-  </body>
+  <style type="text/css">
+    #mynetwork {
+      width: 100%;
+      height: 600px;
+      border: 1px solid lightgray;
+    }
+    #optionsContainer {
+      height:280px;
+    }
+  </style>
 
-  <script>
-        function goPython(){
-            $.ajax({
-              url: "generate.py",
-             context: document.body
-            }).done(function() {
-             alert('Generated !');;
-            });
+</head>
+
+<body>
+
+<h2>Arbbre généalogique</h2>
+
+
+<div id="optionsContainer"></div>
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+  var network;
+
+  function redrawAll() {
+    var container = document.getElementById('mynetwork');
+    var options = {
+      nodes: {
+        shape: 'dot',
+        scaling: {
+          min: 10,
+          max: 30
+        },
+        font: {
+          size: 12,
+          face: 'Tahoma'
         }
-    </script>
+      },
+      edges: {
+        color:{inherit:true},
+        width: 0.15,
+        smooth: {
+          type: 'continuous'
+        }
+      },
+      interaction: {
+        hideEdgesOnDrag: true,
+        tooltipDelay: 200
+      },
+      configure: {
+        filter: function (option, path) {
+          if (option === 'inherit') {return true;}
+          if (option === 'type' && path.indexOf("smooth") !== -1) {return true;}
+          if (option === 'roundness') {return true;}
+          if (option === 'hideEdgesOnDrag') {return true;}
+          if (option === 'hideNodesOnDrag') {return true;}
+          return false;
+        },
+        container: document.getElementById('optionsContainer'),
+        showButton: false
+      },
+      physics: {
+        stabilization: false,
+        barnesHut: {
+          gravitationalConstant: -80000,
+          springConstant: 0.001,
+          springLength: 200
+        }
+      },
+    };
+
+    var data = {nodes:nodes, edges:edges};
+
+    network = new vis.Network(container, data, options);
+  }
+
+  redrawAll()
+
+</script>
+
+</body>
 </html>

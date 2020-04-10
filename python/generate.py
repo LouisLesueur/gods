@@ -22,20 +22,17 @@ class Union:
 
 	def gen_tree(self, G):
 
-		G.add_node('u'+str(self.id), shape='point')
 		if self.father.name != '?':
 			G.add_node(self.father.name)
-			G.add_edge(self.father.name,'u'+str(self.id),arrowhead='none')
 		if self.mother.name != '?':
 			G.add_node(self.mother.name)
-			G.add_edge(self.mother.name,'u'+str(self.id),arrowhead='none')
 
 		for kid in self.children:
 			if kid.name != 'none':
 				if self.father.name != '?':
-					G.add_edge('u'+str(self.id),kid.name)
+					G.add_edge(self.father.name,kid.name)
 				if self.mother.name != '?':
-					G.add_edge('u'+str(self.id),kid.name)
+					G.add_edge(self.mother.name,kid.name)
 
 
 
@@ -66,4 +63,35 @@ def many_unions(G):
 		if len(G.successors(n)) > 1 and n[0] != 'u':
 			print(n)
 
-G.draw('img/out.svg', 'svg', prog='dot')
+
+
+
+def to_js(G):
+
+	dG = {}
+	for i,n in enumerate(G.nodes()):
+		dG[n]=i
+
+	file = open('script.js', 'w')
+
+
+	file.write("const nodes = new vis.DataSet([\n")
+	for n in G.nodes():
+			file.write("    { id: "+str(dG[n])+", label: '"+n+"'},\n")
+	file.write("]);\n")
+
+	file.write("const edges = new vis.DataSet([\n")
+	for u in unions:
+		for child in u.children:
+			if child.name != 'none':
+				if u.father.name != '?':
+					file.write("    { from: "+str(dG[u.father.name])+", to: "+str(dG[child.name])+", relation: 'father', arrows: 'to'},\n")
+				if u.mother.name != '?':
+					file.write("    { from: "+str(dG[u.mother.name])+", to: "+str(dG[child.name])+", relation: 'mom', arrows: 'to'},\n")
+	file.write("]);")
+
+	file.close()
+
+
+G.draw('out.svg', 'svg', prog='dot')
+to_js(G)

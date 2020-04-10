@@ -55,7 +55,13 @@
       },
 
       physics: {
-        stabilization: false,
+        stabilization: {
+          enabled: true,
+          iterations: 10,
+          updateInterval: 1,
+          onlyDynamicEdges: false,
+          fit: true
+        },
         solver: 'forceAtlas2Based',
         timestep: 0.7,
         forceAtlas2Based: {

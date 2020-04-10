@@ -43,9 +43,9 @@
       },
       edges: {
         color:{inherit:true},
-        width: 0.15,
+        width: 0.5,
         smooth: {
-          type: 'continuous'
+          type: 'horizontal'
         }
       },
       interaction: {
@@ -63,11 +63,11 @@
           fit: true
         },
         solver: 'forceAtlas2Based',
-        timestep: 0.7,
+        timestep: 0.2,
         forceAtlas2Based: {
           gravitationalConstant: -500,
-          springConstant: 0.1,
-          springLength: 50,
+          springConstant: 1,
+          springLength: 100,
           theta: 0.5,
           centralGravity: 0.005,
           //nodeDistance: 50,

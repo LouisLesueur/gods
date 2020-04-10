@@ -72,7 +72,7 @@ def to_js(G):
 	for i,n in enumerate(G.nodes()):
 		dG[n]=i
 
-	file = open('script.js', 'w')
+	file = open('../js/global_tree.js', 'w')
 
 
 	file.write("const nodes = new vis.DataSet([\n")
@@ -93,5 +93,5 @@ def to_js(G):
 	file.close()
 
 
-G.draw('out.svg', 'svg', prog='dot')
+G.draw('../img/out.svg', 'svg', prog='dot')
 to_js(G)

@@ -7,14 +7,14 @@
   </head>
   <body>
     <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
-    <img src="python/img/out.svg" />
+    <img src="out.svg" />
 
   </body>
 
   <script>
         function goPython(){
             $.ajax({
-              url: "python/generate.py",
+              url: "generate.py",
              context: document.body
             }).done(function() {
              alert('Generated !');;

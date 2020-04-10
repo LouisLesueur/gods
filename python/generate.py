@@ -45,7 +45,7 @@ unions = [Union(*dat, i) for i,dat in enumerate(data)]
 
 def find_union(person, unions):
 	for u in unions:
-		if person in u.father:
+		if person == u.father:
 			return u
 
 
@@ -77,7 +77,7 @@ def to_js(G):
 
 	file.write("const nodes = new vis.DataSet([\n")
 	for n in G.nodes():
-			file.write("    { id: "+str(dG[n])+", label: '"+n+"'},\n")
+			file.write("    { id: "+str(dG[n])+", label: '"+n+"', color: 'blue', shape: 'dot'},\n")
 	file.write("]);\n")
 
 	file.write("const edges = new vis.DataSet([\n")

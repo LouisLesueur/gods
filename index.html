@@ -55,11 +55,23 @@
 
       physics: {
         stabilization: false,
-        barnesHut: {
-          gravitationalConstant: -10000,
-          springConstant: 0.001,
-          springLength: 200
+        solver: 'forceAtlas2Based',
+        timestep: 0.2,
+        forceAtlas2Based: {
+          gravitationalConstant: -100,
+          springConstant: 1,
+          springLength: 100,
+          theta: 0.5,
+          centralGravity: 0.004,
+          //nodeDistance: 50,
+          //springLength: 500,
+          //springConstant: 0.00001,
         }
+      },
+
+      layout: {
+        improvedLayout: true,
+        clusterThreshold: 100,
       },
     };
 

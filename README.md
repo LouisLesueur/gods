@@ -4,7 +4,7 @@ Arbre généalogique des héros grecs d'après la *Bibliothèque* du Pseudo-Apol
 
 Visible ici: louislesueur.github.io/gods
 
-# To Do
+# To Do
 
 + Relire et ajouter la généalogie des dieux
 + Carte de la Grèce et localisation des "familles"

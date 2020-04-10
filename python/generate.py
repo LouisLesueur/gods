@@ -88,6 +88,8 @@ def to_js(G):
 					file.write("    { from: "+str(dG[u.father.name])+", to: "+str(dG[child.name])+", relation: 'father', arrows: 'to'},\n")
 				if u.mother.name != '?':
 					file.write("    { from: "+str(dG[u.mother.name])+", to: "+str(dG[child.name])+", relation: 'mom', arrows: 'to'},\n")
+				if u.father.name != '?' and u.mother.name != '?':
+					file.write("    { from: "+str(dG[u.mother.name])+", to: "+str(dG[u.father.name])+", relation: 'partner', color: 'red'},\n")
 	file.write("]);")
 
 	file.close()

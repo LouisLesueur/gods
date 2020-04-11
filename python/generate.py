@@ -69,14 +69,29 @@ class graph:
 
 	def to_svg(self):
 		self.Graph.draw('../img/out.svg', 'svg', prog='dot')
+		
+	def extract_for_label(self,title):
+		file_out = open(title+'_persos', 'w')
+		for n in np.sort(self.Graph.nodes()):
+			file_out.write(n+'\n')
+		file_out.close()
+		
+	def no_parents(self):
+		for n in self.Graph.nodes():
+			if len(self.Graph.predecessors(n)) == 0:
+				print(n)
 
 
 class Tree:
-	def __init__(self, author):
-		with open(author, 'r') as file:
-			data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
-
-		self.unions = [Union(*dat, i) for i,dat in enumerate(data)]
+	def __init__(self, authors):
+		self.unions = []
+		for a in authors:
+			with open(a, 'r') as file:
+				data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
+				for i,dat in enumerate(data):
+					self.unions.append(Union(*dat, i))
+			file.close()
+		
 		self.graph = graph(self.unions)
 
 
@@ -87,19 +102,10 @@ class Tree:
 		return None
 
 
-def extract_for_label(title):
-	file_out = open(title+'_persos', 'w')
-	with open(title, 'r') as file:
-		data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
-
-	for d in data:
-		file_out.write(d[0]+'\n')
-		for c in d[2][1:-1].split(" "):
-			file_out.write(c+'\n')
-
-	file_out.close()
 
 
-Apo = Tree('Apollodore')
+
+Apo = Tree(['Apollodore', 'Ajouts'])
 Apo.graph.to_js()
-extract_for_label("Apollodore")
+Apo.graph.no_parents()
+Apo.graph.extract_for_label("Apollodore")

@@ -55,12 +55,16 @@ class graph:
 		file.write("]);\n")
 		file.write("const edges = new vis.DataSet([\n")
 		for u in self.unions:
+			if u.id == 0:
+				color='blue'
+			else:
+				color='green'
 			for child in u.children:
 				if child.name != 'none':
 					if u.father.name != '?':
-						file.write("    { from: "+str(self.Dict[u.father.name])+", to: "+str(self.Dict[child.name])+", relation: 'father', arrows: 'to'},\n")
+						file.write("    { from: "+str(self.Dict[u.father.name])+", to: "+str(self.Dict[child.name])+", relation: 'father', arrows: 'to', color: '"+color+"'},\n")
 					if u.mother.name != '?':
-						file.write("    { from: "+str(self.Dict[u.mother.name])+", to: "+str(self.Dict[child.name])+", relation: 'mom', arrows: 'to'},\n")
+						file.write("    { from: "+str(self.Dict[u.mother.name])+", to: "+str(self.Dict[child.name])+", relation: 'mom', arrows: 'to', color: '"+color+"'},\n")
 					if u.father.name != '?' and u.mother.name != '?':
 						file.write("    { from: "+str(self.Dict[u.mother.name])+", to: "+str(self.Dict[u.father.name])+", relation: 'partner', color: 'red'},\n")
 		file.write("]);")
@@ -69,13 +73,13 @@ class graph:
 
 	def to_svg(self):
 		self.Graph.draw('../img/out.svg', 'svg', prog='dot')
-		
+
 	def extract_for_label(self,title):
 		file_out = open(title+'_persos', 'w')
 		for n in np.sort(self.Graph.nodes()):
 			file_out.write(n+'\n')
 		file_out.close()
-		
+
 	def no_parents(self):
 		for n in self.Graph.nodes():
 			if len(self.Graph.predecessors(n)) == 0:
@@ -85,13 +89,13 @@ class graph:
 class Tree:
 	def __init__(self, authors):
 		self.unions = []
-		for a in authors:
+		for j,a in enumerate(authors):
 			with open(a, 'r') as file:
 				data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
 				for i,dat in enumerate(data):
-					self.unions.append(Union(*dat, i))
+					self.unions.append(Union(*dat, j))
 			file.close()
-		
+
 		self.graph = graph(self.unions)
 
 
@@ -100,9 +104,6 @@ class Tree:
 			if person == u.father:
 				return u
 		return None
-
-
-
 
 
 Apo = Tree(['Apollodore', 'Ajouts'])

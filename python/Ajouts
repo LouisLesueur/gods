@@ -12,6 +12,8 @@ Chaos,?,[Érèbe Gaia Nyx Tartare Amour]
 Hélios,Gaia,[Achéron]
 Astraios,Éos,[Éosphoros]
 Océan,Théthis,[Pénée]
+#Géants
+Ouranos,Gaia,[Eurymédon1]
 
 #Hésiode Travaux et jours
 Héphaïstos,?,[Pandore]
@@ -36,6 +38,7 @@ Apollon,Stilbé,[Lapithès]
 Lapithès,Orsinomé,[Périphas Phorbas]
 Périphas,Astyaguia,[Antion]
 Antion,Périmèle,[Ixion]
+Océan,Théthis,[Pléioné]
 
 #Scholia on Euripides, Phoenician Women 133
 Ioclès,?,[Hipponoos]
@@ -52,3 +55,85 @@ Aléos,?,[Alcidicé]
 #Scholia on Euripides, Orestes, 33
 Crisos,?,[Strophios]
 Phocos,Asteria,[Crisos Panopée]
+
+#Scholia and Eustathius on Odyssey 16. 118
+Zeus,?,[Arcésios]
+
+#Diodorus Siculus, Bibliotheca historica 4.67.7
+Itonos,?,[Hippalmos]
+Boetos,?,[Itonos]
+Poséidon,?,[Boetos]
+
+#Scholia on Iliad, 2. 517  Pausanias, Graeciae Descriptio 2.4.3
+Ornytion,?,[Naubolos]
+Phocos1,?,[Ornytion]
+Ornytion1,?,[Phocos1]
+Sisyphe,Méropé,[Ornytion1]
+
+#Scholia on Apollonius Rhodius, Argonautica, 1. 601
+Créthée,?,[Myrina]
+Thoas1,Myrina,[Hypsipyle]
+
+#Selon la légende ??? Pausanias ???
+Apollon,?,[Cyzique]
+
+#Odyssée
+Eurymédon1,?,[Périboéa2]
+Poséidon,Périboéa,[Nausithous]
+Nausithoos,?,[Rhexénor Alcinoos]
+Rhexénor,?,[Arété]
+Autolycos,?,[Anticlée]
+
+# Scholia on Euripides, Medea, 20; Hyginus in Fab. 25 erroneously calls him a son of Menoeceus, apparently confounding him with Creon of Thebes.
+Lychaethos1,?,[Créon]
+
+#Apollonius Rhodius, Argonautica, 1.112 Pausanias, Description of Greece, 2.16.4
+Inachos,Mélia,[Mycène]
+Arestor,Mycène,[Argos3]
+
+#Scholies sur Euripide et Pausanias
+Argos1,Évadné,[Piranthos Tiryns Phorbas1]
+Phorbas1,?,[Triopas Arestor]
+
+# Pausanias, Description of Greece, 9. 26. 6; scholia on Homer, Iliad, 2. 498 call him son of Teuthras or Cepheus
+Érechtchée,Praxithée1,[Thestios]
+
+#Pindar's ninth Pythian ode
+Hypsée,?,[Cyrène]
+
+#Book XII of Ovid's Metamorphoses
+?,Ion,[Bura]
+Pénée,Bura,[Atrax]
+Atrax,?,[Cænéus]
+Cænéus,?,[Coronos]
+
+#Illiade
+Orménos,?,[Amyntor]
+Cécraphos,?,[Orménos]
+Éole,?,[Cécraphos]
+
+#Apollonios de Rhodes, Argonautiques [détail des éditions] [lire en ligne [archive]], I, 133.
+Clytonée,?,[Nauplios]
+Alcinoos ,?,[Clytonée]
+
+#Légende ????
+Apollon,Cyrène,[Aristée]
+Arès,?,[Oenomaos]
+
+#Euripides, Orestes.
+Zeus,Ploutô,[Tantale]
+
+#Eusèbe de Césarée, Chronique.
+Érechtchée,?,[Ornéus]
+Ornéus,?,[Pétéos]
+
+#Hyginus. Fabulae 14
+Hélios,?,[Agasthénès]
+
+#Pindar, Olympian Ode 9.58  Eustathius on Homer, p. 277
+Zeus,Protogénie,[Opos]
+Opos,?,[Cambyse]
+?,Cambyse,[Opos1]
+Opos2,?,[Cynos]
+Cynos,?,[Hodoedocos]
+Hodoedocos,?,[Oïlée]

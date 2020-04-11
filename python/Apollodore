@@ -1,3 +1,63 @@
+#Livre I, 1, 1-7
+Ouranos,Gaia,[Briarée Gyès Cottos Argès Stéropès Brontès Océan Coéos Hypérion Japet Cronos Rhéa Thémis]
+Ouranos,?,[Alecto Tisiphone Mégère]
+Cronos,Rhéa,[Hestia Déméter Héra Hadès Poséidon Zeus]
+Mélissé,?,[Adrastée Idas]
+Amalthée,?,[none]
+
+#Livre I, 3, 1-6
+Zeus,Héra,[Hébé Ilithyie Arès]
+Zeus,Thémis,[Eirênê Eunomie Dikè Clothô Lachésis Atropos]
+Zeus,Dioné,[Aphrodite]
+Océan,?,[Eurynomé]
+Zeus,Eurynomé,[Aglaé Euphrosyne Thalie]
+#Zeus,Styx,[Perséphone]
+Zeus,Déméter,[Perséphone]
+Zeus,Mnémosyne,[Calliope Clio Melpomène Euterpe Érato Terpsichore Uranie Thalie1 Polymnie]
+Oagre,Calliope,[Linos Orphée]
+Orphée,Eurydice4,[none]
+Magnétès,?,[Piéros]
+Piéros,Clio,[Hyacinthos]
+Philammon,Argiopé,[Thamyris]
+Thamyris,Hyacinthos,[none]
+Apollon,Hyacinthos,[none]
+Strymon,Euterpe,[Rhésos]
+Apollon,Thalie,[Corybantes]
+Achéloos,Melpomène,[Sirènes]
+?,Héra,[Héphaïstos]
+Zeus,Métis,[Athéna]
+
+#Livre I, 4, 1-5
+?,Coéos,[Astérie]
+Zeus,Léto,[Apollon Artémis]
+Zeus,Timbéros,[Pan]
+Python,?,[none]
+Zeus,Élara,[Tityos]
+Orchoménos,?,[Élara]
+Olympos,?,[Marsyas]
+Orion,Sidé,[none]
+Onopion,?,[Méropé]
+Orion,Méropé,[none]
+Orion,Éos,[none]
+Hélios,Rhodos,[none]
+
+#Livre I, 5, 1-3
+Hadès,Perséphone,[none]
+Céléos,Métanire,[Démophon Triptolème]
+?,Iambé,[none]
+Achéron,Gorgyra,[Ascalaphe]
+
+#Livre I, 6, 1-2
+Ouranos,Gaia,[Porphyrion Halcyonée Éphialtès Clytios Encélade Polyboétès Gration Hippolyte1 Pallas1 Agrios1 Thoas3]
+?,Hécate,[none]
+
+#Livre I, 6, 3
+Tartare,Gaia,[Typhon]
+
+#Livre I, 7, 1-2
+Prométhée,?,[Deucalion]
+Épiméthée,Pandore,[Pyrrha]
+
 #Livre I, 7, 2-3
 Deucalion,Pyrrha,[Hellen Amphictyon Protogénie]
 Zeus,Protogénie,[Éthlios]
@@ -34,7 +94,7 @@ Apharée,Aréné,[Idas Lyncée]
 Idas,Marpessa,[none]
 Thestios,Eurythémis,[Althée Léda Hypermnestre Iphiclos Évippos Plexippos Eurypylos1]
 Porthaon,Euryté,[Oenée Agrios Alcathoos Mélas Leucopée Stéropé1]
-Achéloos,Stéropé1,[Sirènes]
+#Achéloos,Stéropé1,[Sirènes] autre version au livre 1
 
 # Livre I, 8, 1-3
 Oenée,Althée,[Toxéos Tyréos Clyménos Gorgé Déjanire Méléagre]
@@ -490,7 +550,7 @@ Borée,Orithyie,[Cléopâtra1 Chioné Zétès Calaïs]
 Phinée,Cléopâtra1,[Plexippos1 Pandion1]
 Phinée,Idéa,[none]
 Poséidon,Chioné,[Eumolpos]
-Poséidon,Amphytrite,[Benthésicimé]
+Poséidon,Amphytrite,[Benthésicimé Triton Rhodos]
 Endios,Benthésicimé,[fille1 fille2]
 Eumolpos,fille1,[Ismaros1]
 Tégyrios,?,[none]

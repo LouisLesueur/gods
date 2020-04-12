@@ -11,7 +11,7 @@ Chaos,?,[Érèbe Gaia Nyx Tartare Amour]
 ?,Gaia,[Pontos Ouranos]
 Hélios,Gaia,[Achéron]
 Astraios,Éos,[Éosphoros]
-Océan,Théthis,[Pénée]
+Océan,Théthis,[Pénée Scamandre Simoïs]
 #Géants
 Ouranos,Gaia,[Eurymédon1]
 
@@ -115,7 +115,7 @@ Cécraphos,?,[Orménos]
 
 #Apollonios de Rhodes, Argonautiques [détail des éditions] [lire en ligne [archive]], I, 133.
 Clytonée,?,[Nauplios]
-Alcinoos ,?,[Clytonée]
+Alcinoos,?,[Clytonée]
 
 #Légende ????
 Apollon,Cyrène,[Aristée]
@@ -138,3 +138,31 @@ Opos,?,[Cambyse]
 Opos2,?,[Cynos]
 Cynos,?,[Hodoedocos]
 Hodoedocos,?,[Oïlée]
+
+#Pindare
+Actor1,Égine,[Ménétios1]
+
+
+#Apollonios de Rhodes, Argonautiques [détail des éditions] [lire en ligne [archive]], I.
+Apollon,?,[Idmon]
+Idmon,?,[Thestor]
+Thestor,?,[Calchas]
+
+#À verifier -> chez Stace ?
+Apollon,?,[Lycomède]
+
+#Pausanias, I, 44, 3.
+Poséidon,Libye,[Lélex]
+Lélex,?,[Cléson]
+Cléson,?,[Pylas Bias2]
+
+#Hyginus. Fabulae, 97
+Augias,?,[Phyléos]
+
+#Asios, citée en Pausanias, Description de la Grèce [détail des éditions] [lire en ligne [archive]] (II, 29, 4)
+Phocos,Astérodia,[Panopée]
+Panopée,?,[Épéos]
+
+# Hyginus, Fabulae 135
+Capys,Thémisté,[Anchise Acoetès]
+Acoetès,?,[Laocoon]

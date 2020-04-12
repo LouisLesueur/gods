@@ -21,7 +21,6 @@ class Union:
 		self.id = id
 
 	def gen_tree(self, G):
-
 		if self.father.name != '?':
 			G.add_node(self.father.name)
 		if self.mother.name != '?':

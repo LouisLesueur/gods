@@ -28,32 +28,23 @@
 <h2>Arbre généalogique</h2>
 
   <div class="form-check-inline">
-    Liens généalogiques:
+    <b>Liens généalogiques:</b>
     <label class="form-check-label">
+      Liens paternels:
       <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' ></input>
-      Is father of
     </label>
     <label class="form-check-label">
+      Liens maternels:
       <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' ></input>
-      Is mom of
     </label>
     <label class="form-check-label">
+      Unions:
       <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' ></input>
-      Is partner of
     </label>
 </div>
 
-<div class="form-check-inline">
-  Liens politiques:
-  <label class="form-check-label">
-    <input type='checkbox' name='edgesFilter' class="form-check-input" value='king_Athènes' ></input>
-    Rois Athènes
-  </label>
-  <label class="form-check-label">
-    <input type='checkbox' name='edgesFilter' class="form-check-input" value='king_Salamine' ></input>
-    Rois Salamine
-  </label>
-
+<div class="form-check-inline" id="kingship">
+  <b>Liens politiques:</b>
 </div>
 
 
@@ -64,6 +55,23 @@
 
 
 <script type="text/javascript">
+
+var kingship = document.getElementById('kingship');
+for (city in cities) {
+  var lab_city = document.createElement("label");
+  lab_city.class = "form-check-label";
+  lab_city.textContent = "Rois "+cities[city]+": "
+
+  var lab_box = document.createElement("input");
+  lab_box.type = "checkbox"
+  lab_box.name = "edgesFilter"
+  lab_box.class = "form-check-input"
+  lab_box.value = "king_"+cities[city]
+
+
+  lab_city.appendChild(lab_box)
+  kingship.appendChild(lab_city);
+}
   var network;
 
   const edgeFilters = document.getElementsByName('edgesFilter')
@@ -77,7 +85,6 @@
     }
 
     var container = document.getElementById('mynetwork');
-
 
     var options = {
       nodes: {
@@ -146,20 +153,11 @@
         edgesView.refresh()
       }))
 
-
-
-
-
     var data = {nodes:nodes, edges:edges};
     network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
 
     // get a JSON object
     allNodes = nodes.get({returnType:"Object"});
-
-
-
-
-
 
 
 

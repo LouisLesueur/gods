@@ -3820,4 +3820,16 @@ const edges = new vis.DataSet([
     { from: 1198, to: 965, relation: 'king_Athènes', arrows: 'to', color: 'yellow'},
     { from: 965, to: 180, relation: 'king_Athènes', arrows: 'to', color: 'yellow'},
     { from: 305, to: 1108, relation: 'king_Salamine', arrows: 'to', color: 'yellow'},
+    { from: 760, to: 799, relation: 'king_Thèbes', arrows: 'to', color: 'yellow'},
+    { from: 799, to: 809, relation: 'king_Thèbes', arrows: 'to', color: 'yellow'},
+    { from: 809, to: 813, relation: 'king_Thèbes', arrows: 'to', color: 'yellow'},
+    { from: 813, to: 834, relation: 'king_Thèbes', arrows: 'to', color: 'yellow'},
+    { from: 834, to: 584, relation: 'king_Thèbes', arrows: 'to', color: 'yellow'},
+    { from: 584, to: 841, relation: 'king_Thèbes', arrows: 'to', color: 'yellow'},
+    { from: 841, to: 453, relation: 'king_Thèbes', arrows: 'to', color: 'yellow'},
 ]);
+const cities = [
+    'Athènes',
+    'Salamine',
+    'Thèbes',
+];

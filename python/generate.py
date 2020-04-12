@@ -48,9 +48,10 @@ class Relation:
 
 
 class graph:
-	def __init__(self, persons, relations):
+	def __init__(self, persons, relations, cities):
 		self.persons = persons
 		self.relations = relations
+		self.cities = cities
 
 
 	def to_js(self):
@@ -62,7 +63,11 @@ class graph:
 		file.write("const edges = new vis.DataSet([\n")
 		for rel in self.relations:
 			file.write(rel.to_js())
-		file.write("]);")
+		file.write("]);\n")
+		file.write("const cities = [\n")
+		for city in self.cities:
+			file.write("    '"+city+"',\n")
+		file.write("];\n")
 		file.close()
 
 
@@ -71,6 +76,7 @@ class Tree:
 		self.names = set({})
 		self.persons = {}
 		self.relations = []
+		self.cities = []
 
 		def add_person(name, origin):
 			idx = len(self.names)
@@ -106,6 +112,7 @@ class Tree:
 		with open('kings', 'r') as file:
 			data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
 			for i,dat in enumerate(data):
+				self.cities.append(dat[0])
 				city = dat[0]
 				kings = dat[1][1:-1].split(" ")
 				for j in range(len(kings)-1):
@@ -115,7 +122,7 @@ class Tree:
 		file.close()
 
 
-		self.graph = graph(self.persons.values(), self.relations)
+		self.graph = graph(self.persons.values(), self.relations, self.cities)
 
 
 

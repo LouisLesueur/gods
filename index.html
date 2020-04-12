@@ -43,7 +43,7 @@
       },
       edges: {
         color:{inherit:true},
-        width: 3,
+        width: 0.15,
         smooth: {
           type: 'horizontal'
         }
@@ -55,31 +55,30 @@
       },
 
       physics: {
-        stabilization: {
-          enabled: true,
-          iterations: 10,
-          updateInterval: 1,
-          onlyDynamicEdges: false,
-          fit: true
-        },
-        solver: 'forceAtlas2Based',
-        timestep: 0.1,
-        forceAtlas2Based: {
-          gravitationalConstant: -500,
-          springConstant: 1,
-          springLength: 100,
-          theta: 0.2,
-          centralGravity: 0.005,
-          //nodeDistance: 50,
-          //springLength: 500,
-          //springConstant: 0.00001,
-        },
-
+        stabilization: false,
+        barnesHut: {
+          gravitationalConstant: -80000,
+          springConstant: 0.001,
+          springLength: 200
+        }
       },
 
       layout: {
-        improvedLayout: true,
+        randomSeed: undefined,
+        improvedLayout: false,
         clusterThreshold: 100,
+        hierarchical: {
+          enabled:false,
+          levelSeparation: 150,
+          nodeSpacing: 100,
+          treeSpacing: 200,
+          blockShifting: true,
+          edgeMinimization: true,
+          parentCentralization: true,
+          direction: 'LR',        // UD, DU, LR, RL
+          sortMethod: 'directed',  // hubsize, directed
+          shakeTowards: 'leaves'  // roots, leaves
+        }
       },
     };
 

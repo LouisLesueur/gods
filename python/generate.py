@@ -96,7 +96,7 @@ class Tree:
 					for child in dat[2][1:-1].split(" "):
 						add_person(child,j)
 						add_relation(dat[0],child,"father",j)
-						add_relation(dat[1],child,"mother",j)
+						add_relation(dat[1],child,"mom",j)
 
 			file.close()
 

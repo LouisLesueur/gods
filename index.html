@@ -29,15 +29,15 @@
 
   <div class="form-check-inline">
     <label class="form-check-label">
-      <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' checked></input>
+      <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' ></input>
       Is father of
     </label>
     <label class="form-check-label">
-      <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' checked></input>
+      <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' ></input>
       Is mom of
     </label>
     <label class="form-check-label">
-      <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' checked></input>
+      <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' ></input>
       Is partner of
     </label>
 </div>
@@ -55,9 +55,9 @@
   const edgeFilters = document.getElementsByName('edgesFilter')
   let nodeFilterValue = ''
     const edgesFilterValues = {
-      mom: true,
-      father: true,
-      partner: true
+      mom: false,
+      father: false,
+      partner: false
     }
 
     var container = document.getElementById('mynetwork');

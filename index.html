@@ -4,6 +4,7 @@
   <title>Mythologie</title>
   <script type="text/javascript" src="js/vis-network.min.js"></script>
   <script src="js/global_tree.js"></script>
+  <link rel="stylesheet" href="css/bootsrap.css">
 
   <style type="text/css">
     #mynetwork {
@@ -26,6 +27,21 @@
 
 <h2>Arbre généalogique</h2>
 
+  <div class="form-check-inline">
+    <label class="form-check-label">
+      <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' checked></input>
+      Is father of
+    </label>
+    <label class="form-check-label">
+      <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' checked></input>
+      Is mom of
+    </label>
+    <label class="form-check-label">
+      <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' checked></input>
+      Is partner of
+    </label>
+</div>
+
 
 
 <div id="mynetwork"></div>
@@ -33,8 +49,18 @@
 <script type="text/javascript">
   var network;
 
+  const edgeFilters = document.getElementsByName('edgesFilter')
+  let nodeFilterValue = ''
+    const edgesFilterValues = {
+      mom: true,
+      father: true,
+      partner: true
+    }
+
   function redrawAll() {
     var container = document.getElementById('mynetwork');
+
+
     var options = {
       nodes: {
         shape: 'dot',
@@ -90,19 +116,40 @@
       },
     };
 
+    const edgesFilter = (edge) => {
+        return edgesFilterValues[edge.relation]
+      }
+
+    const edgesView = new vis.DataView(edges, { filter: edgesFilter })
+
+    edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
+        const { value, checked } = e.target
+        edgesFilterValues[value] = checked
+        edgesView.refresh()
+      }))
+
+
+
 
 
     var data = {nodes:nodes, edges:edges};
-
-    network = new vis.Network(container, data, options);
+    network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
 
     // get a JSON object
     allNodes = nodes.get({returnType:"Object"});
 
+
+
   }
 
 
+
   redrawAll()
+
+
+
+
+
 
 </script>
 

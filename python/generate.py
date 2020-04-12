@@ -7,6 +7,7 @@ class Person:
 		self.name = name
 		self.id = id
 		self.origin=origin
+		self.specs=[]
 
 	def to_js(self):
 		if self.origin==0:
@@ -19,6 +20,9 @@ class Person:
 
 	def __eq__(self, pers):
 		return self.name == pers.name
+
+	def add_spec(self, spec):
+		self.specs.append(spec)
 
 
 class Relation:
@@ -35,11 +39,12 @@ class Relation:
 			if self.origin != 0:
 				color = "green"
 			return "    { from: "+str(self.id1)+", to: "+str(self.id2)+", relation: '"+self.nature+"', color: '"+color+"'},\n"
-		else:
+		if self.nature == "mom" or self.nature=="father":
 			if self.origin != 0:
 				color = "green"
 			return "    { from: "+str(self.id1)+", to: "+str(self.id2)+", relation: '"+self.nature+"', arrows: 'to', color: '"+color+"'},\n"
-
+		if self.nature[:4]=="king":
+			return "    { from: "+str(self.id1)+", to: "+str(self.id2)+", relation: '"+self.nature+"', arrows: 'to', color: 'yellow'},\n"
 
 
 class graph:
@@ -87,7 +92,6 @@ class Tree:
 			with open(a, 'r') as file:
 				data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
 				for i,dat in enumerate(data):
-					idx = len(self.names)
 
 					add_person(dat[0],j)
 					add_person(dat[1],j)
@@ -97,8 +101,18 @@ class Tree:
 						add_person(child,j)
 						add_relation(dat[0],child,"father",j)
 						add_relation(dat[1],child,"mom",j)
-
 			file.close()
+
+		with open('kings', 'r') as file:
+			data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
+			for i,dat in enumerate(data):
+				city = dat[0]
+				kings = dat[1][1:-1].split(" ")
+				for j in range(len(kings)-1):
+					self.persons[kings[j]].add_spec("king: '"+city+"' ")
+					add_relation(kings[j], kings[j+1], "king_"+city)
+				self.persons[kings[-1]].add_spec("king: '"+city+"' ")
+		file.close()
 
 
 		self.graph = graph(self.persons.values(), self.relations)

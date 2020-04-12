@@ -28,6 +28,7 @@
 <h2>Arbre généalogique</h2>
 
   <div class="form-check-inline">
+    Liens généalogiques:
     <label class="form-check-label">
       <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' ></input>
       Is father of
@@ -40,6 +41,19 @@
       <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' ></input>
       Is partner of
     </label>
+</div>
+
+<div class="form-check-inline">
+  Liens politiques:
+  <label class="form-check-label">
+    <input type='checkbox' name='edgesFilter' class="form-check-input" value='king_Athènes' ></input>
+    Rois Athènes
+  </label>
+  <label class="form-check-label">
+    <input type='checkbox' name='edgesFilter' class="form-check-input" value='king_Salamine' ></input>
+    Rois Salamine
+  </label>
+
 </div>
 
 
@@ -57,7 +71,9 @@
     const edgesFilterValues = {
       mom: false,
       father: false,
-      partner: false
+      partner: false,
+      king_Athènes: false,
+      king_Salamine: false,
     }
 
     var container = document.getElementById('mynetwork');

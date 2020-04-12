@@ -50,12 +50,12 @@ class graph:
 		file = open('../js/global_tree.js', 'w')
 		file.write("const nodes = new vis.DataSet([\n")
 		for n in self.Graph.nodes():
-			file.write("    { id: "+str(self.Dict[n])+", label: '"+n+"', color: 'blue', shape: 'dot'},\n")
+			file.write("    { id: "+str(self.Dict[n])+", label: '"+n+"', color: 'orange', shape: 'dot'},\n")
 		file.write("]);\n")
 		file.write("const edges = new vis.DataSet([\n")
 		for u in self.unions:
 			if u.id == 0:
-				color='blue'
+				color='orange'
 			else:
 				color='green'
 			for child in u.children:

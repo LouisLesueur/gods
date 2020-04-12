@@ -27,9 +27,9 @@ class Relation:
 		color = "orange"
 		if self.nature == "partner":
 			color = "red"
-			return "    { from: "+str(self.id1)+", to: "+str(self.id2)+", relation: '"+self.nature+"', arrows: 'to', color: '"+color+"'},\n"
-		else:
 			return "    { from: "+str(self.id1)+", to: "+str(self.id2)+", relation: '"+self.nature+"', color: '"+color+"'},\n"
+		else:
+			return "    { from: "+str(self.id1)+", to: "+str(self.id2)+", relation: '"+self.nature+"', arrows: 'to', color: '"+color+"'},\n"
 
 
 
@@ -65,13 +65,13 @@ class Tree:
 					self.names.add(name)
 					if len(self.names)>idx:
 						self.persons[name] = (Person(name,idx))
-			
+
 		def add_relation(name1, name2, nature):
 			if name1 in self.names and name2 in self.names:
 				id1 = self.persons[name1].id
 				id2 = self.persons[name2].id
 				self.relations.append(Relation(nature,id1,id2))
-				
+
 
 
 		for j,a in enumerate(authors):
@@ -83,14 +83,14 @@ class Tree:
 					add_person(dat[0])
 					add_person(dat[1])
 					add_relation(dat[0],dat[1],"partner")
-		
+
 					for child in dat[2][1:-1].split(" "):
 						add_person(child)
 						add_relation(dat[0],child,"father")
 						add_relation(dat[1],child,"mother")
 
 			file.close()
-			
+
 
 		self.graph = graph(self.persons.values(), self.relations)
 

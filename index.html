@@ -26,6 +26,7 @@
 <body>
 
 <h2>Arbre généalogique</h2>
+<p> En <span style='color:green'>vert</span> les personnages et liens venant de sources externes. Le reste vient du Pseudo-Apollodore.</p>
 
   <div class="form-check-inline">
     <b>Liens généalogiques:</b>
@@ -141,8 +142,10 @@ for (city in cities) {
       },
     };
 
+    const generations = 5;
+
     const edgesFilter = (edge) => {
-        return edgesFilterValues[edge.relation]
+      return edgesFilterValues[edge.relation]
       }
 
     const edgesView = new vis.DataView(edges, { filter: edgesFilter })
@@ -158,7 +161,30 @@ for (city in cities) {
 
     // get a JSON object
     allNodes = nodes.get({returnType:"Object"});
+    network.on("click",getNodes);
 
+
+    function getNodes(params) {
+      var selectedNode = params.nodes[0]
+      var connectedNodes_old = [selectedNode]
+      var connectedNodes = []
+      var allConnectedNodes = []
+
+      for(var i=1;i<generations;i++){
+        connectedNodes = []
+        allConnectedNodes = allConnectedNodes.concat(connectedNodes_old)
+        for(c in connectedNodes_old){
+          connectedNodes = connectedNodes.concat(network.getConnectedNodes(connectedNodes_old[c]))
+        }
+
+        connectedNodes_old = connectedNodes.slice()
+      }
+      for (nody in allConnectedNodes){
+        console.log(allConnectedNodes)
+        nodes.update({id: allConnectedNodes[nody], color:'pink'})
+      }
+
+    }
 
 
 

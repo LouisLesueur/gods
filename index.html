@@ -159,9 +159,7 @@ for (city in cities) {
     var data = {nodes:nodes, edges:edges};
     network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
 
-    // get a JSON object
-    allNodes = nodes.get({returnType:"Object"});
-    network.on("click",getNodes);
+    /*network.on("click",getNodes);
 
 
     function getNodes(params) {
@@ -184,7 +182,7 @@ for (city in cities) {
         nodes.update({id: allConnectedNodes[nody], color:'pink'})
       }
 
-    }
+    }*/
 
 
 

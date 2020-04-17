@@ -3,7 +3,10 @@
 <head>
   <title>Mythologie</title>
   <script type="text/javascript" src="js/vis-network.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script src="js/global_tree.js"></script>
+
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
 
@@ -20,37 +23,58 @@
   <div id="band"></div>
 </div>
 
+
+
+
 <div class="row">
   <div class="col-sm-2">
-    <div class="form-check-inline">
-      <b>Liens généalogiques:</b>
-      <ul>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Filtres relationnels</h4>
+        <div class = "row">
+
+        <button class="btn btn-warning" data-toggle="collapse" data-target="#family">Liens généalogiques</button>
+
+        <div id="family" class="form-check-inline">
+          <ul>
+            <li>
+          <label class="form-check-label">
+            Liens paternels:
+            <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' ></input>
+          </label>
+        </li>
         <li>
-      <label class="form-check-label">
-        Liens paternels:
-        <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' ></input>
-      </label>
-    </li>
-    <li>
-      <label class="form-check-label">
-        Liens maternels:
-        <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' ></input>
-      </label>
-    </li>
-      <li>
-      <label class="form-check-label">
-        Unions:
-        <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' ></input>
-      </label>
-    </li>
-    </ul>
+          <label class="form-check-label">
+            Liens maternels:
+            <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' ></input>
+          </label>
+        </li>
+          <li>
+          <label class="form-check-label">
+            Unions:
+            <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' ></input>
+          </label>
+        </li>
+        </ul>
+        </div>
+      </div>
+
+
+        <div class = "row">
+
+        <button class="btn btn-warning" data-toggle="collapse" data-target="#politics">Liens politiques</button>
+
+        <div id="politics" class="form-check-inline" >
+        <ul id="kingship">
+        </ul>
+
+      </div>
+    </div>
+      </div>
     </div>
 
-    <div class="form-check-inline" >
-    Liens politiques:
-    <ul id="kingship">
-    </ul>
-  </div>
+
 </div>
 
   <div class="col-sm-10"><div id="mynetwork"></div></div>

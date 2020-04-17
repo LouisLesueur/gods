@@ -1,7 +1,6 @@
 #mynetwork {
   width: 80%;
-  height: 1000px;
-  border: 1px solid orange;
+  height: 800px;
   background-color: #222222;
   color: white;
 }
@@ -16,6 +15,7 @@ body {
 }
 
 #band {
+    margin-top: 20px;
     background-image: url(../img/meander.svg);
     background-repeat: repeat-x;
     background-size: 20px 20px;

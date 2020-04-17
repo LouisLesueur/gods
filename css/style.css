@@ -26,3 +26,13 @@ body {
 #bannertitle {
   font-family: pythia;
 }
+
+button {
+  width: 100%;
+}
+
+#filters {
+  border-left: 6px solid orange;
+  background-color: #2b2b2b;
+  padding: 10px;
+}

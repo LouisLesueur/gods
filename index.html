@@ -1,89 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Mythologie</title>
-  <script type="text/javascript" src="js/vis-network.min.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/global_tree.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mythologie</title>
+<script type="text/javascript" src="js/vis-network.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/global_tree.js"></script>
 
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="opencloseNav()">&times;</a>
 
-<div class="jumbotron" style="background-color: #222222;">
-  <div class="container">
-    <h1 id="bannertitle">Arbre généalogique de la mythologie grecque</h1>
-    <td>
-  </div>
-  <div id="band"></div>
-</div>
-
-
-
-
-<div class="row">
-  <div class="col-sm-2">
-
-    <div class="card" id="filters">
-      <div class="card-body">
-        <h4 class="card-title">Filtres relationnels</h4>
-        <div class = "row">
-
-        <button class="btn btn-warning" data-toggle="collapse" data-target="#family">Liens généalogiques</button>
-
-        <div id="family" class="form-check-inline">
-          <ul>
-            <li>
-          <label class="form-check-label">
-            Liens paternels:
-            <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' ></input>
-          </label>
-        </li>
-        <li>
-          <label class="form-check-label">
-            Liens maternels:
-            <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' ></input>
-          </label>
-        </li>
-          <li>
-          <label class="form-check-label">
-            Unions:
-            <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' ></input>
-          </label>
-        </li>
-        </ul>
-        </div>
-      </div>
-
-
-        <div class = "row">
-
-        <button class="btn btn-warning" data-toggle="collapse" data-target="#politics">Liens politiques</button>
-
-        <div id="politics" class="form-check-inline" >
-        <ul id="kingship">
-        </ul>
-
-      </div>
-    </div>
-      </div>
+  <h4 >Filtres relationnels</h4>
+  <div id="family" class="form-check-inline">
+  <ul>
+    <li>
+      <label class="form-check-label">
+        Liens paternels:
+        <input type='checkbox' name='edgesFilter' class="form-check-input" value='father' ></input>
+      </label>
+    </li>
+    <li>
+      <label class="form-check-label">
+        Liens maternels:
+        <input type='checkbox' name='edgesFilter' class="form-check-input" value='mom' ></input>
+      </label>
+    </li>
+      <li>
+      <label class="form-check-label">
+        Unions:
+        <input type='checkbox' name='edgesFilter' class="form-check-input" value='partner' ></input>
+      </label>
+    </li>
+    </ul>
     </div>
 
-
+    <h4>Liens politiques</h4>
+    <div id="politics" class="form-check-inline" >
+    <ul id="kingship">
+    </ul>
+    </div>
 </div>
 
-  <div class="col-sm-10"><div id="mynetwork"></div></div>
+<div id="main">
 
+  <span class="action" onclick="opencloseNav()">&#9776; Options</span>
+  <span class="action" onclick="network.startSimulation()">&#9654; Start</span>
+  <span class="action" onclick="network.stopSimulation()">&#9208; Stop </span>
+  <div id="mynetwork"></div>
 </div>
 
+<script>
+// NAVBAR ------------------------------------------------------------------------------------------------
+function opencloseNav() {
+
+  if (document.getElementById("mySidenav").style.width=="0px" || document.getElementById("mySidenav").style.width==""){
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  } else {
+    document.getElementById("mySidenav").style.width = "0px";
+    document.getElementById("main").style.marginLeft= "0px";
+  }
+}
 
 
-<script type="text/javascript">
 
 var kingship = document.getElementById('kingship');
 for (city in cities) {
@@ -103,120 +88,94 @@ for (city in cities) {
   lab_li.appendChild(lab_city)
   kingship.appendChild(lab_li);
 }
-  var network;
 
-  const edgeFilters = document.getElementsByName('edgesFilter')
-  let nodeFilterValue = ''
-    const edgesFilterValues = {
-      mom: false,
-      father: false,
-      partner: false,
-      king_Athènes: false,
-      king_Salamine: false,
+// ARBRE ----------------------------------------------------------------
+var network;
+
+const edgeFilters = document.getElementsByName('edgesFilter')
+let nodeFilterValue = ''
+  const edgesFilterValues = {
+    mom: false,
+    father: false,
+    partner: false,
+    king_Athènes: false,
+    king_Salamine: false,
+  }
+
+  var container = document.getElementById('mynetwork');
+
+  var options = {
+
+    nodes: {
+      shape: 'dot',
+      scaling: {
+        min: 10,
+        max: 30
+      },
+      font: {
+        size: 12,
+        face: 'Tahoma',
+        color: '#ffffff'
+      },
+      borderWidth: 2,
+    },
+    edges: {
+      color:{inherit:true},
+      width: 0.15,
+      smooth: {
+        type: 'horizontal'
+      }
+    },
+    interaction: {
+      dragNodes: true,
+      hideEdgesOnDrag: true,
+      tooltipDelay: 200
+    },
+
+    physics: {
+      stabilization: false,
+      barnesHut: {
+        gravitationalConstant: -80000,
+        springConstant: 0.001,
+        springLength: 200
+      }
+    },
+
+    layout: {
+      randomSeed: undefined,
+      improvedLayout: false,
+      clusterThreshold: 100,
+      hierarchical: {
+        enabled:false,
+        levelSeparation: 150,
+        nodeSpacing: 100,
+        treeSpacing: 200,
+        blockShifting: true,
+        edgeMinimization: true,
+        parentCentralization: true,
+        direction: 'LR',        // UD, DU, LR, RL
+        sortMethod: 'directed',  // hubsize, directed
+        shakeTowards: 'leaves'  // roots, leaves
+      }
+    },
+  };
+
+  const generations = 5;
+
+  const edgesFilter = (edge) => {
+    return edgesFilterValues[edge.relation]
     }
 
-    var container = document.getElementById('mynetwork');
+  const edgesView = new vis.DataView(edges, { filter: edgesFilter })
 
-    var options = {
-      nodes: {
-        shape: 'dot',
-        scaling: {
-          min: 10,
-          max: 30
-        },
-        font: {
-          size: 12,
-          face: 'Tahoma',
-          color: '#ffffff'
-        },
-        borderWidth: 2,
-      },
-      edges: {
-        color:{inherit:true},
-        width: 0.15,
-        smooth: {
-          type: 'horizontal'
-        }
-      },
-      interaction: {
-        dragNodes: true,
-        hideEdgesOnDrag: true,
-        tooltipDelay: 200
-      },
+  edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
+      const { value, checked } = e.target
+      edgesFilterValues[value] = checked
+      edgesView.refresh()
+    }))
 
-      physics: {
-        stabilization: false,
-        barnesHut: {
-          gravitationalConstant: -80000,
-          springConstant: 0.001,
-          springLength: 200
-        }
-      },
-
-      layout: {
-        randomSeed: undefined,
-        improvedLayout: false,
-        clusterThreshold: 100,
-        hierarchical: {
-          enabled:false,
-          levelSeparation: 150,
-          nodeSpacing: 100,
-          treeSpacing: 200,
-          blockShifting: true,
-          edgeMinimization: true,
-          parentCentralization: true,
-          direction: 'LR',        // UD, DU, LR, RL
-          sortMethod: 'directed',  // hubsize, directed
-          shakeTowards: 'leaves'  // roots, leaves
-        }
-      },
-    };
-
-    const generations = 5;
-
-    const edgesFilter = (edge) => {
-      return edgesFilterValues[edge.relation]
-      }
-
-    const edgesView = new vis.DataView(edges, { filter: edgesFilter })
-
-    edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
-        const { value, checked } = e.target
-        edgesFilterValues[value] = checked
-        edgesView.refresh()
-      }))
-
-    var data = {nodes:nodes, edges:edges};
-    network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
-
-    /*network.on("click",getNodes);
-
-
-    function getNodes(params) {
-      var selectedNode = params.nodes[0]
-      var connectedNodes_old = [selectedNode]
-      var connectedNodes = []
-      var allConnectedNodes = []
-
-      for(var i=1;i<generations;i++){
-        connectedNodes = []
-        allConnectedNodes = allConnectedNodes.concat(connectedNodes_old)
-        for(c in connectedNodes_old){
-          connectedNodes = connectedNodes.concat(network.getConnectedNodes(connectedNodes_old[c]))
-        }
-
-        connectedNodes_old = connectedNodes.slice()
-      }
-      for (nody in allConnectedNodes){
-        console.log(allConnectedNodes)
-        nodes.update({id: allConnectedNodes[nody], color:'pink'})
-      }
-
-    }*/
-
-
-
-
+  var data = {nodes:nodes, edges:edges};
+  network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
 </script>
 
 </body>

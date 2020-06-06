@@ -1,12 +1,19 @@
 #mynetwork {
-  width: 80%;
-  height: 800px;
+  width: 100%;
   background-color: #222222;
   color: white;
+  height: calc(100% - 30px);
+  border: 1px solid #222222;
 }
-body {
+
+
+
+html,body {
   background-color: #222222;
   color: orange;
+  width: 100%;
+  height: 100%;
+  margin:0;
 }
 
 @font-face {
@@ -14,25 +21,56 @@ body {
     src: url('../fonts/diogenes.ttf'); /*URL to font*/
 }
 
-#band {
-    margin-top: 20px;
-    background-image: url(../img/meander.svg);
-    background-repeat: repeat-x;
-    background-size: 20px 20px;
-    height: 20px;
 
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
-#bannertitle {
-  font-family: pythia;
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-button {
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
   width: 100%;
+  height: 100%;
 }
 
-#filters {
-  border-left: 6px solid orange;
-  background-color: #2b2b2b;
-  padding: 10px;
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.action {
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 20px;
 }

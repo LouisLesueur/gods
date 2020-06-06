@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/vis-network.min.css">
 </head>
 <body>
 
@@ -52,6 +53,8 @@
   <span class="action" onclick="opencloseNav()">&#9776; Options</span>
   <span class="action" onclick="network.startSimulation()">&#9654; Start</span>
   <span class="action" onclick="network.stopSimulation()">&#9208; Stop </span>
+  <span class="action" onclick="reset()">&#10226; Reset </span>
+
   <div id="mynetwork"></div>
 </div>
 
@@ -91,91 +94,96 @@ for (city in cities) {
 
 // ARBRE ----------------------------------------------------------------
 var network;
+var container = document.getElementById('mynetwork');
+
+var options = {
+
+  nodes: {
+    shape: 'dot',
+    scaling: {
+      min: 10,
+      max: 30
+    },
+    font: {
+      size: 12,
+      face: 'Tahoma',
+      color: '#ffffff'
+    },
+    borderWidth: 2,
+  },
+
+  edges: {
+    color:{inherit:true},
+    width: 0.15,
+    smooth: {
+      type: 'horizontal'
+    }
+  },
+
+  interaction: {
+    dragNodes: true,
+    hideEdgesOnDrag: true,
+    tooltipDelay: 200
+  },
+
+  physics: {
+    stabilization: false,
+    barnesHut: {
+      gravitationalConstant: -80000,
+      springConstant: 0.001,
+      springLength: 200
+    }
+  },
+};
+
 
 const edgeFilters = document.getElementsByName('edgesFilter')
-let nodeFilterValue = ''
-  const edgesFilterValues = {
-    mom: false,
-    father: false,
-    partner: false,
-    king_Athènes: false,
-    king_Salamine: false,
+const edgesFilterValues = {}
+edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
+    const { value, checked } = e.target
+    edgesFilterValues[value] = checked
+    edgesView.refresh()
+}))
+
+const edgesFilter = (edge) => {
+  return edgesFilterValues[edge.relation]
+}
+
+
+const edgesView = new vis.DataView(edges, { filter: edgesFilter })
+
+network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
+
+
+function reset() {
+  network.setData({ nodes: nodes, edges: edgesView })
+}
+
+
+network.on("click", function(e) {
+  clicked = network.getSelectedNodes()[0];
+  connected = network.getConnectedNodes(clicked);
+  for (var i=0; i<connected.length; i++) {
+    connected.concat(network.getConnectedNodes(connected[i]));
   }
 
-  var container = document.getElementById('mynetwork');
+  connected.push(clicked);
 
-  var options = {
+  nodesFilter = (node) => {
+    if(connected.includes(node.id)){
 
-    nodes: {
-      shape: 'dot',
-      scaling: {
-        min: 10,
-        max: 30
-      },
-      font: {
-        size: 12,
-        face: 'Tahoma',
-        color: '#ffffff'
-      },
-      borderWidth: 2,
-    },
-    edges: {
-      color:{inherit:true},
-      width: 0.15,
-      smooth: {
-        type: 'horizontal'
-      }
-    },
-    interaction: {
-      dragNodes: true,
-      hideEdgesOnDrag: true,
-      tooltipDelay: 200
-    },
-
-    physics: {
-      stabilization: false,
-      barnesHut: {
-        gravitationalConstant: -80000,
-        springConstant: 0.001,
-        springLength: 200
-      }
-    },
-
-    layout: {
-      randomSeed: undefined,
-      improvedLayout: false,
-      clusterThreshold: 100,
-      hierarchical: {
-        enabled:false,
-        levelSeparation: 150,
-        nodeSpacing: 100,
-        treeSpacing: 200,
-        blockShifting: true,
-        edgeMinimization: true,
-        parentCentralization: true,
-        direction: 'LR',        // UD, DU, LR, RL
-        sortMethod: 'directed',  // hubsize, directed
-        shakeTowards: 'leaves'  // roots, leaves
-      }
-    },
-  };
-
-  const generations = 5;
-
-  const edgesFilter = (edge) => {
-    return edgesFilterValues[edge.relation]
+      return true;
     }
+    else {
+      return false;
+    }
+  }
 
-  const edgesView = new vis.DataView(edges, { filter: edgesFilter })
+  nodesView = new vis.DataView(nodes, { filter: nodesFilter });
+  network.setData({ nodes: nodesView, edges: edgesView });
+});
 
-  edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
-      const { value, checked } = e.target
-      edgesFilterValues[value] = checked
-      edgesView.refresh()
-    }))
 
-  var data = {nodes:nodes, edges:edges};
-  network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
 </script>
 
 </body>

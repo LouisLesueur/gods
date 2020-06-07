@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav left">
   <a href="javascript:void(0)" class="closebtn" onclick="opencloseNav()">&times;</a>
 
   <h4 >Filtres relationnels</h4>
@@ -49,14 +49,26 @@
 </div>
 
 <div id="main">
-
   <span class="action" onclick="opencloseNav()">&#9776; Options</span>
   <span class="action" onclick="network.startSimulation()">&#9654; Start</span>
   <span class="action" onclick="network.stopSimulation()">&#9208; Stop </span>
   <span class="action" onclick="reset()">&#10226; Reset </span>
+  <span class="action" onclick="opencloseSpecs()" style="float: right"> Détails personnages &#9776;</span>
 
-  <div id="mynetwork"></div>
+  <div id="mynetwork" onclick="updatespecs()"></div>
 </div>
+
+<div id="specs" class="sidenav right">
+  <a href="javascript:void(0)" class="closebtn" onclick="opencloseSpecs()">&times;</a>
+
+  <h4 >Personnage sélectionné: </h4>
+  <ul>
+    <li>nom: <span id="specname"></span></li>
+    <li><span>Extraire sous-arbre de profondeur: <input style="width: 50%" type="range" min="1" max="4" value="2" class="slider" id="depth"> <button onclick="getsubtree()">go</button></span></li>
+  </ul>
+</div>
+
+
 
 <script>
 // NAVBAR ------------------------------------------------------------------------------------------------
@@ -68,6 +80,17 @@ function opencloseNav() {
   } else {
     document.getElementById("mySidenav").style.width = "0px";
     document.getElementById("main").style.marginLeft= "0px";
+  }
+}
+
+function opencloseSpecs() {
+
+  if (document.getElementById("specs").style.width=="0px" || document.getElementById("specs").style.width==""){
+    document.getElementById("specs").style.width = "500px";
+    document.getElementById("main").style.marginRight = "500px";
+  } else {
+    document.getElementById("specs").style.width = "0px";
+    document.getElementById("main").style.marginRight= "0px";
   }
 }
 
@@ -159,13 +182,29 @@ function reset() {
   network.setData({ nodes: nodes, edges: edgesView })
 }
 
+function updatespecs() {
+  clicked = network.getSelectedNodes()[0];
+  document.getElementById('specname').textContent = nodes.get(clicked).label;
 
-network.on("click", function(e) {
+}
+
+function getsubtree() {
+  depth = document.getElementById('depth').value
   clicked = network.getSelectedNodes()[0];
   connected = network.getConnectedNodes(clicked);
-  for (var i=0; i<connected.length; i++) {
-    connected.concat(network.getConnectedNodes(connected[i]));
+
+  start = 0
+  for (var j=0; j<depth; j++){
+    console.log("couocu");
+    stop = connected.length;
+    for (var i=start; i<stop; i++) {
+      connected = connected.concat(network.getConnectedNodes(connected[i]));
+    }
+    start = stop;
   }
+
+
+
 
   connected.push(clicked);
 
@@ -178,10 +217,9 @@ network.on("click", function(e) {
       return false;
     }
   }
-
   nodesView = new vis.DataView(nodes, { filter: nodesFilter });
   network.setData({ nodes: nodesView, edges: edgesView });
-});
+}
 
 
 </script>

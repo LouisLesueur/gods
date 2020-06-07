@@ -1,17 +1,16 @@
 # gods
 
-Arbre généalogique des héros grecs d'après la *Bibliothèque* du Pseudo-Apollodore.
+Arbre généalogique des héros grecs d'après la *Bibliothèque* du Pseudo-Apollodore (et quelques ajouts externes).
 
-Visible ici: louislesueur.github.io/gods
+Visible [ici](louislesueur.github.io/gods)
 
-# To Do
+## To Do
 
-+ Relire et ajouter la généalogie des dieux
-+ Carte de la Grèce et localisation des "familles"
-+ Extraction de sous arbres
-+ Affichages des dynasties royales
-+ Groupes: Achéens/Troyens/Argonautes/Dieux
++ Carte de la Grèce et localisation des "familles".
++ Groupes: Achéens/Troyens/Argonautes/Dieux.
++ Améliorer les performances de l'affichage !
++ Automatisation de l'extraction des données dans les textes.
 
-# Technologies
+## Technologies
 
 Arbre généré avec pygraphviz, affichage dynamique avec vis.js

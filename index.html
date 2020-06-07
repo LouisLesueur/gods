@@ -64,7 +64,7 @@
   <h4 >Personnage sélectionné: </h4>
   <ul>
     <li>nom: <span id="specname"></span></li>
-    <li><span>Extraire sous-arbre de profondeur (ancêtres): <input style="width: 50%" type="range" min="1" max="10" value="2" class="slider" id="depth"> <button onclick="getsubtree()">go</button></span></li>
+    <li><span>Extraire sous-arbre de profondeur (ancêtres, décocher unions): <input style="width: 50%" type="range" min="1" max="10" value="2" class="slider" id="depth"> <button onclick="getsubtree()">go</button></span></li>
   </ul>
 </div>
 
@@ -119,47 +119,6 @@ for (city in cities) {
 var network;
 var container = document.getElementById('mynetwork');
 
-var options = {
-
-  nodes: {
-    shape: 'dot',
-    scaling: {
-      min: 10,
-      max: 30
-    },
-    font: {
-      size: 12,
-      face: 'Tahoma',
-      color: '#ffffff'
-    },
-    borderWidth: 2,
-  },
-
-  edges: {
-    color:{inherit:true},
-    width: 0.15,
-    smooth: {
-      type: 'horizontal'
-    }
-  },
-
-  interaction: {
-    dragNodes: true,
-    hideEdgesOnDrag: true,
-    tooltipDelay: 200
-  },
-
-  physics: {
-    stabilization: false,
-    barnesHut: {
-      gravitationalConstant: -80000,
-      springConstant: 0.001,
-      springLength: 200
-    }
-  },
-};
-
-
 const edgeFilters = document.getElementsByName('edgesFilter')
 const edgesFilterValues = {}
 edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
@@ -175,11 +134,65 @@ const edgesFilter = (edge) => {
 
 const edgesView = new vis.DataView(edges, { filter: edgesFilter })
 
-network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
+network = new vis.Network(container);
+reset();
 
 
 function reset() {
-  network.setData({ nodes: nodes, edges: edgesView })
+  var options = {
+
+    nodes: {
+      shape: 'dot',
+      scaling: {
+        min: 10,
+        max: 30
+      },
+      font: {
+        size: 12,
+        face: 'Tahoma',
+        color: '#ffffff'
+      },
+      borderWidth: 2,
+    },
+
+    edges: {
+      color:{inherit:true},
+      width: 0.15,
+      smooth: {
+        type: 'horizontal'
+      }
+    },
+
+    interaction: {
+      dragNodes: true,
+      hideEdgesOnDrag: true,
+      tooltipDelay: 200
+    },
+
+    physics: {
+      stabilization: false,
+      barnesHut: {
+        gravitationalConstant: -80000,
+        springConstant: 0.001,
+        springLength: 200
+      }
+    },
+    layout: {
+    randomSeed: undefined,
+    hierarchical: {
+      enabled:false,
+      levelSeparation: 150,
+      blockShifting: true,
+      edgeMinimization: true,
+      parentCentralization: true,
+      direction: 'UD',        // UD, DU, LR, RL
+      sortMethod: 'directed',  // hubsize, directed
+      shakeTowards: 'roots'  // roots, leaves
+    }
+  }
+  };
+  network.setOptions(options);
+  network.setData({ nodes: nodes, edges: edgesView });
 }
 
 function updatespecs() {
@@ -193,6 +206,22 @@ function getsubtree() {
   clicked = network.getSelectedNodes()[0];
   connected = network.getConnectedNodes(clicked, 'from');
 
+  var tree_options = {
+    layout: {
+    randomSeed: undefined,
+    hierarchical: {
+      enabled:true,
+      levelSeparation: 150,
+      blockShifting: true,
+      edgeMinimization: true,
+      parentCentralization: true,
+      direction: 'UD',        // UD, DU, LR, RL
+      sortMethod: 'directed',  // hubsize, directed
+      shakeTowards: 'roots'  // roots, leaves
+    }
+  }
+}
+
   start = 0
   for (var j=0; j<depth; j++){
     stop = connected.length;
@@ -201,10 +230,6 @@ function getsubtree() {
     }
     start = stop;
   }
-
-
-
-
   connected.push(clicked);
 
   nodesFilter = (node) => {
@@ -218,6 +243,7 @@ function getsubtree() {
   }
   nodesView = new vis.DataView(nodes, { filter: nodesFilter });
   network.setData({ nodes: nodesView, edges: edgesView });
+  network.setOptions(tree_options)
 }
 
 

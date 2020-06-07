@@ -64,7 +64,7 @@
   <h4 >Personnage sélectionné: </h4>
   <ul>
     <li>nom: <span id="specname"></span></li>
-    <li><span>Extraire sous-arbre de profondeur: <input style="width: 50%" type="range" min="1" max="4" value="2" class="slider" id="depth"> <button onclick="getsubtree()">go</button></span></li>
+    <li><span>Extraire sous-arbre de profondeur (ancêtres): <input style="width: 50%" type="range" min="1" max="10" value="2" class="slider" id="depth"> <button onclick="getsubtree()">go</button></span></li>
   </ul>
 </div>
 
@@ -191,14 +191,13 @@ function updatespecs() {
 function getsubtree() {
   depth = document.getElementById('depth').value
   clicked = network.getSelectedNodes()[0];
-  connected = network.getConnectedNodes(clicked);
+  connected = network.getConnectedNodes(clicked, 'from');
 
   start = 0
   for (var j=0; j<depth; j++){
-    console.log("couocu");
     stop = connected.length;
     for (var i=start; i<stop; i++) {
-      connected = connected.concat(network.getConnectedNodes(connected[i]));
+      connected = connected.concat(network.getConnectedNodes(connected[i], 'from'));
     }
     start = stop;
   }

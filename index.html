@@ -3,10 +3,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mythologie</title>
-<script type="text/javascript" src="js/vis-network.min.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/global_tree.js"></script>
+<script type="text/javascript" src="js/libs/vis-network.min.js"></script>
+<script src="js/libs/jquery.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src="js/data.js"></script>
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/style.css">
@@ -69,185 +69,9 @@
 </div>
 
 
-
-<script>
-// NAVBAR ------------------------------------------------------------------------------------------------
-function opencloseNav() {
-
-  if (document.getElementById("mySidenav").style.width=="0px" || document.getElementById("mySidenav").style.width==""){
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-  } else {
-    document.getElementById("mySidenav").style.width = "0px";
-    document.getElementById("main").style.marginLeft= "0px";
-  }
-}
-
-function opencloseSpecs() {
-
-  if (document.getElementById("specs").style.width=="0px" || document.getElementById("specs").style.width==""){
-    document.getElementById("specs").style.width = "500px";
-    document.getElementById("main").style.marginRight = "500px";
-  } else {
-    document.getElementById("specs").style.width = "0px";
-    document.getElementById("main").style.marginRight= "0px";
-  }
-}
-
-
-
-var kingship = document.getElementById('kingship');
-for (city in cities) {
-  var lab_li = document.createElement("li");
-  var lab_city = document.createElement("label");
-  lab_city.class = "form-check-label";
-  lab_city.textContent = "Rois "+cities[city]+": "
-
-  var lab_box = document.createElement("input");
-  lab_box.type = "checkbox"
-  lab_box.name = "edgesFilter"
-  lab_box.class = "form-check-input"
-  lab_box.value = "king_"+cities[city]
-
-
-  lab_city.appendChild(lab_box)
-  lab_li.appendChild(lab_city)
-  kingship.appendChild(lab_li);
-}
-
-// ARBRE ----------------------------------------------------------------
-var network;
-var container = document.getElementById('mynetwork');
-
-const edgeFilters = document.getElementsByName('edgesFilter')
-const edgesFilterValues = {}
-edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
-    const { value, checked } = e.target
-    edgesFilterValues[value] = checked
-    edgesView.refresh()
-}))
-
-const edgesFilter = (edge) => {
-  return edgesFilterValues[edge.relation]
-}
-
-
-const edgesView = new vis.DataView(edges, { filter: edgesFilter })
-
-network = new vis.Network(container);
-reset();
-
-
-function reset() {
-  var options = {
-
-    nodes: {
-      shape: 'dot',
-      scaling: {
-        min: 10,
-        max: 30
-      },
-      font: {
-        size: 12,
-        face: 'Tahoma',
-        color: '#ffffff'
-      },
-      borderWidth: 2,
-    },
-
-    edges: {
-      color:{inherit:true},
-      width: 0.15,
-      smooth: {
-        type: 'horizontal'
-      }
-    },
-
-    interaction: {
-      dragNodes: true,
-      hideEdgesOnDrag: true,
-      tooltipDelay: 200
-    },
-
-    physics: {
-      stabilization: false,
-      barnesHut: {
-        gravitationalConstant: -80000,
-        springConstant: 0.001,
-        springLength: 200
-      }
-    },
-    layout: {
-    randomSeed: undefined,
-    hierarchical: {
-      enabled:false,
-      levelSeparation: 150,
-      blockShifting: true,
-      edgeMinimization: true,
-      parentCentralization: true,
-      direction: 'UD',        // UD, DU, LR, RL
-      sortMethod: 'directed',  // hubsize, directed
-      shakeTowards: 'roots'  // roots, leaves
-    }
-  }
-  };
-  network.setOptions(options);
-  network.setData({ nodes: nodes, edges: edgesView });
-}
-
-function updatespecs() {
-  clicked = network.getSelectedNodes()[0];
-  document.getElementById('specname').textContent = nodes.get(clicked).label;
-
-}
-
-function getsubtree() {
-  depth = document.getElementById('depth').value
-  clicked = network.getSelectedNodes()[0];
-  connected = network.getConnectedNodes(clicked, 'from');
-
-  var tree_options = {
-    layout: {
-    randomSeed: undefined,
-    hierarchical: {
-      enabled:true,
-      levelSeparation: 150,
-      blockShifting: true,
-      edgeMinimization: true,
-      parentCentralization: true,
-      direction: 'UD',        // UD, DU, LR, RL
-      sortMethod: 'directed',  // hubsize, directed
-      shakeTowards: 'roots'  // roots, leaves
-    }
-  }
-}
-
-  start = 0
-  for (var j=0; j<depth; j++){
-    stop = connected.length;
-    for (var i=start; i<stop; i++) {
-      connected = connected.concat(network.getConnectedNodes(connected[i], 'from'));
-    }
-    start = stop;
-  }
-  connected.push(clicked);
-
-  nodesFilter = (node) => {
-    if(connected.includes(node.id)){
-
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-  nodesView = new vis.DataView(nodes, { filter: nodesFilter });
-  network.setData({ nodes: nodesView, edges: edgesView });
-  network.setOptions(tree_options)
-}
-
-
-</script>
+<script src="js/nav.js"></script>
+<script src="js/net.js"></script>
+<script src="js/specs.js"></script>
 
 </body>
 </html>

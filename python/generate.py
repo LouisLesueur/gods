@@ -55,7 +55,7 @@ class graph:
 
 
 	def to_js(self):
-		file = open('../js/global_tree.js', 'w')
+		file = open('../js/data.js', 'w')
 		file.write("const nodes = new vis.DataSet([\n")
 		for pers in self.persons:
 			file.write(pers.to_js())

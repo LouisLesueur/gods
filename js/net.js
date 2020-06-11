@@ -4,6 +4,7 @@ var container = document.getElementById('mynetwork');
 
 const edgeFilters = document.getElementsByName('edgesFilter')
 const edgesFilterValues = {}
+
 edgeFilters.forEach(filter => filter.addEventListener('change', (e) => {
     const { value, checked } = e.target
     edgesFilterValues[value] = checked
@@ -74,6 +75,15 @@ function reset() {
     }
   }
   };
+
+  for (i=0; i<nodes.length; i++) {
+    node = nodes.get(i)
+    if (node.hidden == true) {
+      node.hidden = false;
+      nodes.update(node);
+    }
+  }
+
   network.setOptions(options);
   network.setData({ nodes: nodes, edges: edgesView });
 }

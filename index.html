@@ -44,7 +44,22 @@
     <h4>Liens politiques</h4>
     <div id="politics" class="form-check-inline" >
     <ul id="kingship">
+      <li>
+      <label class="form-check-label">
+        Lignées royales:
+        <input type='checkbox' name='edgesFilter' class="form-check-input" value='king' onclick="applyPalette(cities, 'king')" ></input>
+      </label>
+    </li>
     </ul>
+    </div>
+
+    <h4>Outils</h4>
+    <div id="tools" class="form-check-inline" >
+      <li>
+      <button onclick="hideOrphans()">Cacher noeuds orphelins (peut prendre du temps)</button>
+      <button onclick="resetColors()">Réintialiser les couleurs</button>
+    </li>
+
     </div>
 </div>
 
@@ -65,6 +80,10 @@
   <ul>
     <li>nom: <span id="specname"></span></li>
     <li><span>Extraire sous-arbre de profondeur (ancêtres, décocher unions): <input style="width: 50%" type="range" min="1" max="10" value="2" class="slider" id="depth"> <button onclick="getsubtree()">go</button></span></li>
+  </ul>
+
+  <h4>Légende: </h4>
+  <ul id='legend-labels'>
   </ul>
 </div>
 

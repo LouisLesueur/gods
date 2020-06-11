@@ -53,9 +53,9 @@ Corinthe,[Sisyphe Glaucos Bellérophon Hippolochos]
 Sparte,[Lélèges Mylès Eurotas Lacédémon Amyclas Argalos Cynortas Oebalos Tyndare Ménélas Oreste]
 #ARGOLIDE
 Argos,[Inachos Phoronée Apis Argos1 Criasos Phorbas1 Triopas Iasos1 Agénor5 Crotopos Sthénélos3 Gelanor Danaos Lyncée1 Abas1 Proétos Acrisios Persée Mégapenthès Argéos]
-Argos/Anaxagore,[Anaxagore Alector Iphis1]
-Argos/Mélampous,[Mélampous]
-Argos/Bias,[Bias Talaos Adraste Diomède]
+Argos_Anaxagore,[Anaxagore Alector Iphis1]
+Argos_Mélampous,[Mélampous]
+Argos_Bias,[Bias Talaos Adraste Diomède]
 #THESSALIE
 Iolcos,[Créthée Pélias Jason Acaste]
 Phères,[Créthée Phérès Admète Eumélos]

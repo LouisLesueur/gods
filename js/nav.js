@@ -20,21 +20,57 @@ function opencloseSpecs() {
   }
 }
 
-var kingship = document.getElementById('kingship');
-for (city in cities) {
-  var lab_li = document.createElement("li");
-  var lab_city = document.createElement("label");
-  lab_city.class = "form-check-label";
-  lab_city.textContent = "Rois "+cities[city]+": "
+function hideOrphans() {
+  for (i=0; i<nodes.length; i++) {
+    node = nodes.get(i)
+    if (network.getConnectedNodes(i).length == 0) {
+      node.hidden = true;
+      nodes.update(node);
+    }
+  }
+}
 
-  var lab_box = document.createElement("input");
-  lab_box.type = "checkbox"
-  lab_box.name = "edgesFilter"
-  lab_box.class = "form-check-input"
-  lab_box.value = "king_"+cities[city]
+function resetColors() {
+  for (i=0; i<nodes.length; i++) {
+    node = nodes.get(i)
+    if (node.color.background != 'orange') {
+      node.color = {background: 'orange', border: 'orange',}
+      nodes.update(node);
+    }
+  }
+}
 
+function applyPalette(palette, spec){
+  legend = false;
+  for (i=0; i<nodes.length; i++) {
+    node = nodes.get(i)
+    if (node.hasOwnProperty(spec)) {
+      if (node.color.background != palette[node[spec]]){
+        node.color = {background: palette[node[spec]], border: palette[node[spec]],}
+        nodes.update(node);
+        legend = true;
+      }
+      else {
+        node.color = {background: 'orange', border: 'orange',}
+        nodes.update(node);
+      }
+    }
+  }
 
-  lab_city.appendChild(lab_box)
-  lab_li.appendChild(lab_city)
-  kingship.appendChild(lab_li);
+  legendBox = document.getElementById("legend-labels")
+  legendBox.innerHTML = '';
+  if (legend == true){
+    labels = Object.keys(palette)
+    console.log(labels.length)
+    for(i=0; i<labels.length; i++){
+      li_legend = document.createElement("li");
+      li_legend.textContent = labels[i]
+      span_legend = document.createElement("span");
+      span_legend.style = 'background: '+palette[labels[i]]+";"
+
+      li_legend.appendChild(span_legend)
+      legendBox.appendChild(li_legend)
+    }
+  }
+
 }

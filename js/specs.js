@@ -19,15 +19,16 @@ function getsubtree() {
   }
   connected.push(clicked);
 
-  nodesFilter = (node) => {
-    if(connected.includes(node.id)){
+  to_hide = []
+  for (i=0; i<nodes.length; i++) {
+    node = nodes.get(i)
+    if(!connected.includes(i)){
+      node.hidden = true;
+      to_hide.push(node)
 
-      return true;
-    }
-    else {
-      return false;
     }
   }
-  nodesView = new vis.DataView(nodes, { filter: nodesFilter });
-  network.setData({ nodes: nodesView, edges: edgesView });
+
+
+  nodes.update(to_hide);
 }

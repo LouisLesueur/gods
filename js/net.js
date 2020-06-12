@@ -18,57 +18,59 @@ const edgesFilter = (edge) => {
 
 const edgesView = new vis.DataView(edges, { filter: edgesFilter })
 
-network = new vis.Network(container);
-reset();
+
+var options = {
+
+  nodes: {
+    shape: 'dot',
+    scaling: {
+      min: 10,
+      max: 30
+    },
+    font: {
+      size: 12,
+      face: 'Tahoma',
+      color: '#ffffff'
+    },
+    borderWidth: 2,
+  },
+
+  edges: {
+    color:{inherit:true},
+    width: 0.15,
+    smooth: {
+      type: 'horizontal'
+    }
+  },
+
+  interaction: {
+    dragNodes: true,
+    hideEdgesOnDrag: true,
+    tooltipDelay: 200
+  },
+
+  physics: {
+    stabilization: false,
+    barnesHut: {
+      gravitationalConstant: -80000,
+      springConstant: 0.001,
+      springLength: 200
+    }
+  },
+  layout: {
+  improvedLayout: false,
+  randomSeed: undefined,
+  hierarchical: {
+    enabled:false,
+  }
+}
+};
+
+network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
 
 
 function reset() {
-  var options = {
 
-    nodes: {
-      shape: 'dot',
-      scaling: {
-        min: 10,
-        max: 30
-      },
-      font: {
-        size: 12,
-        face: 'Tahoma',
-        color: '#ffffff'
-      },
-      borderWidth: 2,
-    },
-
-    edges: {
-      color:{inherit:true},
-      width: 0.15,
-      smooth: {
-        type: 'horizontal'
-      }
-    },
-
-    interaction: {
-      dragNodes: true,
-      hideEdgesOnDrag: true,
-      tooltipDelay: 200
-    },
-
-    physics: {
-      stabilization: false,
-      barnesHut: {
-        gravitationalConstant: -80000,
-        springConstant: 0.001,
-        springLength: 200
-      }
-    },
-    layout: {
-    improvedLayout: false,
-    randomSeed: undefined,
-    hierarchical: {
-      enabled:false,
-    }
-  }
-  };
 
   nodes_reset = []
   for (i=0; i<nodes.length; i++) {
@@ -80,6 +82,4 @@ function reset() {
   }
 
   nodes.update(nodes_reset);
-  network.setOptions(options);
-  network.setData({ nodes: nodes, edges: edgesView });
 }

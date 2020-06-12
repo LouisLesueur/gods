@@ -22,41 +22,37 @@ function opencloseSpecs() {
 
 function hideOrphans() {
 
-  nodesFilter = (node) => {
-    if(node.color.background == 'orange' || node.color == 'orange'){
+  to_hide = []
+  for (i=0; i<nodes.length; i++) {
+    node = nodes.get(i)
+    if (node.color.background == 'orange' || node.color == 'orange'){
       if (network.getConnectedNodes(i).length == 0) {
-        return false;
+        node.hidden = true;
+        to_hide.push(node)
       }
-      else {
-        return true;
-      }
-    }
-    else {
-      return true;
     }
   }
-
-  nodesView = new vis.DataView(nodes, { filter: nodesFilter });
-  network.setData({ nodes: nodesView, edges: edgesView });
+  nodes.update(to_hide);
 }
 
 
 function applyPalette(palette, spec){
+  to_colorize = []
   legend = false;
   for (i=0; i<nodes.length; i++) {
     node = nodes.get(i)
     if (node.hasOwnProperty(spec)) {
       if (node.color.background != palette[node[spec]]){
         node.color = {background: palette[node[spec]], border: palette[node[spec]],}
-        nodes.update(node);
         legend = true;
       }
       else {
         node.color = {background: 'orange', border: 'orange',}
-        nodes.update(node);
       }
+      to_colorize.push(node)
     }
   }
+  nodes.update(to_colorize);
 
   legendBox = document.getElementById("legend-labels")
   legendBox.innerHTML = '';

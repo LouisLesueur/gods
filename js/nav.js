@@ -21,26 +21,25 @@ function opencloseSpecs() {
 }
 
 function hideOrphans() {
-  for (i=0; i<nodes.length; i++) {
-    node = nodes.get(i)
-    if (node.color.background == 'orange' || node.color == 'orange'){
+
+  nodesFilter = (node) => {
+    if(node.color.background == 'orange' || node.color == 'orange'){
       if (network.getConnectedNodes(i).length == 0) {
-        node.hidden = true;
-        nodes.update(node);
+        return false;
+      }
+      else {
+        return true;
       }
     }
-  }
-}
-
-function resetColors() {
-  for (i=0; i<nodes.length; i++) {
-    node = nodes.get(i)
-    if (node.color.background != 'orange') {
-      node.color = {background: 'orange', border: 'orange',}
-      nodes.update(node);
+    else {
+      return true;
     }
   }
+
+  nodesView = new vis.DataView(nodes, { filter: nodesFilter });
+  network.setData({ nodes: nodesView, edges: edgesView });
 }
+
 
 function applyPalette(palette, spec){
   legend = false;

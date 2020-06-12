@@ -24,6 +24,7 @@ function getsubtree() {
     node = nodes.get(i)
     if(!connected.includes(i)){
       node.hidden = true;
+      node.physics = false
       to_hide.push(node)
 
     }

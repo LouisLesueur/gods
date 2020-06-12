@@ -70,13 +70,12 @@ network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options
 
 
 function reset() {
-
-
   nodes_reset = []
   for (i=0; i<nodes.length; i++) {
     node = nodes.get(i)
     if (node.hidden == true) {
       node.hidden = false;
+      node.physics = true;
       nodes_reset.push(node)
     }
   }

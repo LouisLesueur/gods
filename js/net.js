@@ -70,14 +70,16 @@ function reset() {
   }
   };
 
+  nodes_reset = []
   for (i=0; i<nodes.length; i++) {
     node = nodes.get(i)
     if (node.hidden == true) {
       node.hidden = false;
-      nodes.update(node);
+      nodes_reset.push(node)
     }
   }
 
+  nodes.update(nodes_reset);
   network.setOptions(options);
   network.setData({ nodes: nodes, edges: edgesView });
 }

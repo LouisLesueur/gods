@@ -4,16 +4,16 @@ function updatespecs() {
 
 }
 
-function getsubtree() {
+function getsubtree(from_or_to) {
   depth = document.getElementById('depth').value
   clicked = network.getSelectedNodes()[0];
-  connected = network.getConnectedNodes(clicked, 'from');
+  connected = network.getConnectedNodes(clicked, from_or_to);
 
   start = 0
   for (var j=0; j<depth; j++){
     stop = connected.length;
     for (var i=start; i<stop; i++) {
-      connected = connected.concat(network.getConnectedNodes(connected[i], 'from'));
+      connected = connected.concat(network.getConnectedNodes(connected[i], from_or_to));
     }
     start = stop;
   }

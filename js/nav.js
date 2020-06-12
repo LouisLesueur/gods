@@ -23,9 +23,11 @@ function opencloseSpecs() {
 function hideOrphans() {
   for (i=0; i<nodes.length; i++) {
     node = nodes.get(i)
-    if (network.getConnectedNodes(i).length == 0) {
-      node.hidden = true;
-      nodes.update(node);
+    if (node.color.background == 'orange' || node.color == 'orange'){
+      if (network.getConnectedNodes(i).length == 0) {
+        node.hidden = true;
+        nodes.update(node);
+      }
     }
   }
 }

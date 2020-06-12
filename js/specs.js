@@ -9,22 +9,6 @@ function getsubtree() {
   clicked = network.getSelectedNodes()[0];
   connected = network.getConnectedNodes(clicked, 'from');
 
-  var tree_options = {
-    layout: {
-    randomSeed: undefined,
-    hierarchical: {
-      enabled:true,
-      levelSeparation: 150,
-      blockShifting: true,
-      edgeMinimization: true,
-      parentCentralization: true,
-      direction: 'UD',        // UD, DU, LR, RL
-      sortMethod: 'directed',  // hubsize, directed
-      shakeTowards: 'roots'  // roots, leaves
-    }
-  }
-}
-
   start = 0
   for (var j=0; j<depth; j++){
     stop = connected.length;
@@ -46,5 +30,4 @@ function getsubtree() {
   }
   nodesView = new vis.DataView(nodes, { filter: nodesFilter });
   network.setData({ nodes: nodesView, edges: edgesView });
-  network.setOptions(tree_options)
 }

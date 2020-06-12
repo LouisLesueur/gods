@@ -62,16 +62,10 @@ function reset() {
       }
     },
     layout: {
+    improvedLayout: false,
     randomSeed: undefined,
     hierarchical: {
       enabled:false,
-      levelSeparation: 150,
-      blockShifting: true,
-      edgeMinimization: true,
-      parentCentralization: true,
-      direction: 'UD',        // UD, DU, LR, RL
-      sortMethod: 'directed',  // hubsize, directed
-      shakeTowards: 'roots'  // roots, leaves
     }
   }
   };

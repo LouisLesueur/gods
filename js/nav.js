@@ -98,6 +98,7 @@ function applyPalette(spec){
         datasets: [{
             data: values,
             backgroundColor: colors,
+            borderColor: colors,
         }]
     }
     legendChart.update()

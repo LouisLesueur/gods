@@ -30,15 +30,12 @@ function hideOrphans() {
     if (node.color.background == 'orange'){
       if (network.getConnectedNodes(i).length == 0) {
         node.hidden = true;
-        node.x = 0
-        node.y = 0
-        node.fixed = true
-        node.physics = false
         to_hide.push(node)
       }
     }
   }
   nodes.update(to_hide);
+  nodesView.refresh()
 }
 
 

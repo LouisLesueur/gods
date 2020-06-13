@@ -2,8 +2,6 @@
 var network;
 var container = document.getElementById('mynetwork');
 
-
-
 // FILTRES LIENS
 const edgeFilters = document.getElementsByName('edgesFilter')
 const edgesFilterValues = {}
@@ -20,6 +18,14 @@ const edgesFilter = (edge) => {
 
 const edgesView = new vis.DataView(edges, { filter: edgesFilter })
 
+//FILTRES NOEUDS
+const nodesFilter = (node) => {
+  return !node.hidden
+}
+
+const nodesView = new vis.DataView(nodes, { filter: nodesFilter })
+
+
 // FILTRES COULEURS
 const colorFilters = document.getElementsByName('colorFilter')
 const colorFilterValues = {}
@@ -30,6 +36,8 @@ colorFilters.forEach(filter => filter.addEventListener('change', (e) => {
 }))
 
 
+
+// CHART
 ctx = document.getElementById('myChart');
 chart_options = {
   type: 'doughnut',
@@ -102,7 +110,7 @@ var options = {
 }
 };
 
-network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
+network = new vis.Network(container, { nodes: nodesView, edges: edgesView }, options);
 
 colorize = []
 for (i=0; i<nodes.length; i++) {

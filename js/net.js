@@ -85,6 +85,7 @@ function reset() {
     if (node.hidden == true) {
       node.hidden = false;
       node.physics = true;
+      node.fixed = false
       nodes_reset.push(node)
     }
   }

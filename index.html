@@ -89,12 +89,16 @@
     <li><span>Extraire sous-arbre de profondeur: <input style="width: 50%" type="range" min="1" max="10" value="2" class="slider" id="depth"> <button onclick="getsubtree('from')">ascendance</button> <button onclick="getsubtree('to')">descendance</button></span></li>
   </ul>
 
+  <label for="site-search">Rechercher un personnage:</label>
+  <input type="search" id="site-search" name="q" aria-label="Search through site content" onkeypress="search()">
+  <ul id="results"></ul>
+
   <h4>Légende: </h4>
   <ul id='legend-labels'>
   </ul>
 </div>
 
-
+<script src="js/maths_utils.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/net.js"></script>
 <script src="js/specs.js"></script>

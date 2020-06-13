@@ -33,3 +33,31 @@ function getsubtree(from_or_to) {
 
   nodes.update(to_hide);
 }
+
+
+function search() {
+  searchBar = document.getElementById("site-search")
+  to_search = searchBar.value
+  found = nodes.getIds({
+    filter: function (item) {
+      return (levenshtein(item.label.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase(), to_search.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase()) < 3);
+    }
+  })
+
+  results = document.getElementById("results")
+  results.innerHTML=''
+
+  for (let i=0; i<found.length; i++) {
+    result = document.createElement("button")
+    const foundid = found[i]
+    result.textContent = nodes.get(foundid).label
+    result.addEventListener('click', () => {
+      network.selectNodes([foundid])
+      updatespecs()
+      results.innerHTML=''})
+
+
+    results.appendChild(result)
+  }
+
+}

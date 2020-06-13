@@ -15,7 +15,7 @@ class Person:
 		for spec in self.specs:
 			specs_js += spec + ', '
 
-		return "    { id: "+str(self.id)+", label: '"+self.name+"',"+specs_js+" color: 'orange', shape: 'dot'},\n"
+		return "    { id: "+str(self.id)+", label: '"+self.name+"',"+specs_js+" shape: 'dot'},\n"
 
 	def __str__(self):
 		return self.name

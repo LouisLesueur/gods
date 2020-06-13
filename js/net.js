@@ -33,6 +33,15 @@ var options = {
       color: '#ffffff'
     },
     borderWidth: 2,
+    color: {
+      background: 'orange',
+      border: 'orange',
+      highlight: {
+        background: '#ffffff',
+        border: 'red',
+      },
+
+    },
   },
 
   edges: {

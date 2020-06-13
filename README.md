@@ -2,7 +2,7 @@
 
 Arbre généalogique des héros grecs d'après la *Bibliothèque* du Pseudo-Apollodore (et quelques ajouts externes).
 
-Visible [ici](louislesueur.github.io/gods)
+Visible [ici](http://louislesueur.github.io/gods)
 
 ## To Do
 
@@ -13,4 +13,4 @@ Visible [ici](louislesueur.github.io/gods)
 
 ## Technologies
 
-Arbre généré avec pygraphviz, affichage dynamique avec vis.js
+Arbre généré avec pygraphviz, affichage dynamique avec vis.js et charts.js

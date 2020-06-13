@@ -43,7 +43,7 @@ function hideOrphans() {
 
 
 function colorReset(){
-  legendBox = document.getElementById("legend-labels")
+  legendBox = document.getElementById('myChart')
   legendBox.innerHTML = '';
   to_colorize = []
   for (i=0; i<nodes.length; i++) {
@@ -60,23 +60,29 @@ function colorReset(){
 function applyPalette(spec){
   colorReset()
   to_colorize = []
-  var colors = {}
+  var values = []
+  var colors = []
+  var labels = []
   var count = 0
   for (i=0; i<nodes.length; i++) {
     node = nodes.get(i)
     if (node.hasOwnProperty(spec)) {
-      if (!colors.hasOwnProperty(node[spec])) {
-        colors[node[spec]] = count
+      if (!labels.includes(node[spec])) {
+        colors[count] = palette[count]
+        labels[count] = node[spec]
+        values[count] = 0
         count ++
       }
-      node.color = {background: palette[colors[node[spec]]], border: palette[colors[node[spec]]],}
+      else {
+        values[labels.indexOf(node[spec])]++
+      }
+      node.color = {background: colors[labels.indexOf(node[spec])], border: palette[labels.indexOf(node[spec])],}
       legend = true;
 
       to_colorize.push(node)
     }
   }
   nodes.update(to_colorize);
-  labels = Object.keys(colors)
   for(i=0; i<labels.length; i++){
     li_legend = document.createElement("li");
     li_legend.textContent = labels[i]
@@ -87,5 +93,13 @@ function applyPalette(spec){
     legendBox.appendChild(li_legend)
   }
 
+  chart_options.data = {
+        labels: labels,
+        datasets: [{
+            data: values,
+            backgroundColor: colors,
+        }]
+    }
+    legendChart.update()
 
 }

@@ -29,6 +29,31 @@ colorFilters.forEach(filter => filter.addEventListener('change', (e) => {
     applyPalette(value)
 }))
 
+
+ctx = document.getElementById('myChart');
+chart_options = {
+  type: 'doughnut',
+  options: {
+      responsive: true,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      },
+      tooltips: {
+        titleFontSize: 15,
+        bodyFontSize: 15,
+      }
+    }
+}
+legendChart = new Chart(ctx, chart_options);
+
+
 var options = {
 
   nodes: {

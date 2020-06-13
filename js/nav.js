@@ -25,7 +25,7 @@ function hideOrphans() {
   to_hide = []
   for (i=0; i<nodes.length; i++) {
     node = nodes.get(i)
-    if (node.color.background == 'orange' || node.color == 'orange'){
+    if (node.color.background == 'orange'){
       if (network.getConnectedNodes(i).length == 0) {
         node.hidden = true;
         to_hide.push(node)

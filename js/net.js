@@ -33,15 +33,7 @@ var options = {
       color: '#ffffff'
     },
     borderWidth: 2,
-    color: {
-      background: 'orange',
-      border: 'orange',
-      highlight: {
-        background: '#ffffff',
-        border: 'red',
-      },
 
-    },
   },
 
   edges: {
@@ -76,6 +68,21 @@ var options = {
 };
 
 network = new vis.Network(container, { nodes: nodes, edges: edgesView }, options);
+
+colorize = []
+for (i=0; i<nodes.length; i++) {
+  node = nodes.get(i)
+  node.color = {background: 'orange',
+  border: 'orange',
+  highlight: {
+    background: '#ffffff',
+    border: 'red',
+  },
+}
+  colorize.push(node)
+}
+nodes.update(colorize);
+
 
 
 function reset() {

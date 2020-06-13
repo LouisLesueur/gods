@@ -31,6 +31,7 @@ function getsubtree(from_or_to) {
   }
   nodes.update(to_hide);
   nodesView.refresh()
+
 }
 
 

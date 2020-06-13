@@ -90,7 +90,6 @@ class Tree:
 				self.relations.append(Relation(nature,id1,id2,origin))
 
 
-
 		for j,a in enumerate(authors):
 			with open(a, 'r') as file:
 				data = np.loadtxt(file,  dtype='str', comments='#', delimiter=',')
@@ -129,10 +128,16 @@ class Tree:
 				self.persons[sides[-1]].add_spec("side: '"+side+"' ")
 		file.close()
 
-
 		self.graph = graph(self.persons.values(), self.relations, self.cities, self.sides)
+
+	def export_persos(self):
+		file = open('Persos', 'w')
+		for name in self.names:
+			file.write(name+'\n')
+		file.close()
 
 
 
 Apo = Tree(['Apollodore', 'Ajouts'])
+Apo.export_persos()
 Apo.graph.to_js()

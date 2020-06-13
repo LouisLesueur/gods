@@ -48,7 +48,6 @@ function applyPalette(palette, spec){
     if (node.hasOwnProperty(spec)) {
       if (node.color.background != palette[node[spec]]){
         node.color = {background: palette[node[spec]], border: palette[node[spec]],}
-        node.mass = 0.2
         legend = true;
       }
       else {

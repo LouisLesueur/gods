@@ -13,4 +13,4 @@ Visible [ici](louislesueur.github.io/gods)
 
 ## Technologies
 
-Arbre généré avec pygraphviz, affichage dynamique avec vis.js
+Arbre généré avec pygraphviz, affichage dynamique avec vis.js et charts.js

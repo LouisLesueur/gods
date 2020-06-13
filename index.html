@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/libs/vis-network.min.js"></script>
 <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/bootstrap.min.js"></script>
+<script src="js/libs/Chart.min.js"></script>
 <script src="js/data.js"></script>
 
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -19,6 +20,7 @@
 <div id="mySidenav" class="sidenav left">
   <a href="javascript:void(0)" class="closebtn" onclick="opencloseNav()">&times;</a>
 
+  <h3> Filtres </h3>
   <h4 >Filtres relationnels</h4>
   <div id="family" class="form-check-inline">
   <ul>
@@ -49,13 +51,24 @@
       <li>
       <label class="form-check-label">
         Lignées royales:
-        <input type='checkbox' name='edgesFilter' class="form-check-input" value='king' onclick="applyPalette(cities, 'king')" ></input>
+        <input type='checkbox' name='edgesFilter' class="form-check-input" value='king'></input>
       </label>
     </li>
+  </ul>
+
+  <h3>Colorations</h3>
+  <ul>
+    <li>
+    <label class="form-check-label">
+      Lignées royales:
+      <input type="radio" name="colorFilter" class="form-check-input" value='king'></input>
+    </label>
+  </li>
+
     <li>
     <label class="form-check-label">
       Guerre de Troie:
-      <input type='checkbox' class="form-check-input" value='side' onclick="applyPalette(sides, 'side')" ></input>
+      <input type="radio" name="colorFilter" class="form-check-input" value='side'></input>
     </label>
   </li>
     </ul>

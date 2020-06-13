@@ -51,7 +51,6 @@ class graph:
 		self.relations = relations
 		self.cities = cities
 		self.sides = sides
-		self.palette = ["#ff9398","#87c300","#fe0071","#9dd63d","#d53177","#8cc14d","#f70045","#83a300","#e0004e","#cdcb1d","#ee5990","#719200","#ff4f80","#577b0a","#ff486b","#6e983c","#e4001a","#acd172","#ff3c4d","#98c066","#c83968","#bfb400","#e67198","#dfc529","#ff7da3","#5b832c","#ff6384","#c5cc5c","#d13243","#d0c94f","#bf6180","#909000","#ff9bb9","#c29f00","#b37285","#ff9c06","#8f8a8b","#d72c25","#a3bb80","#ff636a","#65833f","#ff6d43","#85a161","#ff7830","#c1c4bc","#d75b00","#b1b2af","#e17b00","#dabec5","#d28b00","#886e75","#fab946","#b45062","#cbc879","#c04752","#6c7623","#ff837e","#867800","#d390a3","#a18200","#a47783","#ffb34e","#b3979e","#c87a00","#a2a997","#bb5c00","#a5b193","#ff9c42","#7d886d","#ff8865","#778a5c","#b75227","#cec68c","#b25447","#ecbf5a","#a25d5a","#b28300","#ffa7a9","#7e7115","#efb8b1","#a95d0d","#d9c0ad","#8a6c22","#ff9782","#6e7443","#ff916d","#896960","#ff9e5c","#836d4d","#ffa474","#8a6b3a","#ffa991","#92682e","#f6b798","#9d632b","#dbc374","#a95b4a","#f7b976","#a75d3d","#ecbc89"]
 
 
 	def to_js(self):
@@ -64,14 +63,6 @@ class graph:
 		for rel in self.relations:
 			file.write(rel.to_js())
 		file.write("]);\n")
-		file.write("const cities = {\n")
-		for i,city in enumerate(self.cities):
-			file.write(city+": '"+self.palette[i]+"',\n")
-		file.write("};\n")
-		file.write("const sides = {\n")
-		for i,side in enumerate(self.sides):
-			file.write(side+": '"+self.palette[i]+"',\n")
-		file.write("};\n")
 		file.close()
 
 

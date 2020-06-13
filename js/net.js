@@ -2,6 +2,9 @@
 var network;
 var container = document.getElementById('mynetwork');
 
+
+
+// FILTRES LIENS
 const edgeFilters = document.getElementsByName('edgesFilter')
 const edgesFilterValues = {}
 
@@ -15,9 +18,16 @@ const edgesFilter = (edge) => {
   return edgesFilterValues[edge.relation]
 }
 
-
 const edgesView = new vis.DataView(edges, { filter: edgesFilter })
 
+// FILTRES COULEURS
+const colorFilters = document.getElementsByName('colorFilter')
+const colorFilterValues = {}
+
+colorFilters.forEach(filter => filter.addEventListener('change', (e) => {
+    const { value, checked } = e.target
+    applyPalette(value)
+}))
 
 var options = {
 

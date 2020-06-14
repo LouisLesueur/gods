@@ -1,0 +1,5 @@
+numpy
+matplotlib
+cltk
+greek-accentuation
+sklearn
